@@ -1,10 +1,13 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from './components/navigation/Navigation';
+import FrontPage from './components/loginpage/FrontPage';
 
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world</h1>
+      <Navigation />
+      <FrontPage />
     </div>
   );
 }
