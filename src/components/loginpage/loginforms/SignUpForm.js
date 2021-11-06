@@ -1,56 +1,52 @@
 import React from 'react'
-import { useState } from 'react'
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
-import { Row } from 'react-bootstrap'
+
+
+
+const schema = yup.object().shape({
+    email: yup.string().required("Please enter your name").email("Please enter a valid email address"),
+    password: yup.string().required("Please enter your message").min(8, "The message must be at least 8 characters"),
+});
 
 function SignUpForm() {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm({
+        resolver: yupResolver(schema)
+    });
 
-    function onSubmit(event) {
-        localStorage.setItem('Email', email);
-        setEmail(event.target.value)
 
+    function onSubmit(data) {
 
-        localStorage.setItem('Password', password);
-        setPassword(event.target.value)
+        localStorage.setItem('Email', data.email)
+        localStorage.setItem('Password', data.password)
+
+        reset()
     }
 
     return (
         <div>
             <Container>
-                <Form>
-                    <Row>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control
-                                onChange={(e) => setEmail(e.target.value)}
-                                value={email}
-                                type="email"
-                                placeholder="Enter email" />
-
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-                    </Row>
-
-                    <Row>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                onChange={(e) => setPassword(e.target.value)}
-                                value={password}
-                                type="password"
-                                placeholder="Password" />
-                        </Form.Group>
-                    </Row>
-                    <Button onClick={onSubmit} variant="primary" type="submit">
-                        Submit
-                    </Button>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <input {...register('email')} placeholder="Email" />
+                        {errors.email && <p className="errormsg">{errors.email.message}</p>}
+                    </div>
+                    <div>
+                        <input {...register('password')} placeholder="Password" />
+                        {errors.password && <p className="errormsg">{errors.password.message}</p>}
+                    </div>
+                    <div>
+                        <button type="submit">Register</button>
+                    </div>
                 </Form>
             </Container>
         </div>

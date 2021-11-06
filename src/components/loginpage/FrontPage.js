@@ -8,7 +8,7 @@ function SignUpPage() {
     return (
         <>
             <Container>
-                <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+                <Tabs defaultActiveKey="Login" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="Login" title="Login">
                         <LoginForm />
                     </Tab>
