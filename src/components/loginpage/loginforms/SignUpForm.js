@@ -14,6 +14,8 @@ const schema = yup.object().shape({
 
 function SignUpForm() {
 
+
+
     const {
         register,
         handleSubmit,

@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+
 
 function Navigation() {
+
+
     return (
-        <nav>
-            <p>nav</p>
-        </nav>
-    )
+        <div>
+            <h1>Navigation</h1>
+        </div>
+
+    );
 }
 
 export default Navigation

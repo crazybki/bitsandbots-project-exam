@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Form from 'react-bootstrap/Form'
+import { useHistory } from 'react-router';
 import Container from 'react-bootstrap/Container'
+
 
 const schema = yup.object().shape({
     email: yup.string().required("Please enter your name").email("Please enter a valid email address"),
@@ -11,6 +13,8 @@ const schema = yup.object().shape({
 });
 
 function LoginForm() {
+
+    let history = useHistory();
 
     const {
         register,
@@ -20,7 +24,7 @@ function LoginForm() {
         resolver: yupResolver(schema)
     });
 
-    function onSubmit(data) {
+    async function onSubmit(data) {
         const email = localStorage.getItem('Email');
         const password = localStorage.getItem('Password');
 
@@ -28,16 +32,14 @@ function LoginForm() {
         let userPasswordInput = data.password;
 
         if (email === userEmailInput && password === userPasswordInput) {
-            console.log('True....log in....')
+            history.push('/games')
         } else {
-            console.log('Wrong password')
+            console.log('Wrong email or password')
         }
-
-
     }
 
     return (
-        <>
+        <div>
             <Container>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <div>
@@ -53,7 +55,7 @@ function LoginForm() {
                     </div>
                 </Form>
             </Container>
-        </>
+        </div>
     )
 }
 

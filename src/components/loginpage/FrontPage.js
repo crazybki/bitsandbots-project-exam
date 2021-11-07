@@ -4,9 +4,11 @@ import Tab from 'react-bootstrap/Tab'
 import LoginForm from './loginforms/LoginForm'
 import SignUpForm from './loginforms/SignUpForm'
 import { Container } from 'react-bootstrap'
-function SignUpPage() {
+
+
+function FrontPage() {
     return (
-        <>
+        <div>
             <Container>
                 <Tabs defaultActiveKey="Login" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="Login" title="Login">
@@ -17,8 +19,8 @@ function SignUpPage() {
                     </Tab>
                 </Tabs>
             </Container>
-        </>
+        </div>
     )
 }
 
-export default SignUpPage
+export default FrontPage
