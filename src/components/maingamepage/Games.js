@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import FetchGames from './Gamepage/FetchGames';
+import LoginCheck from './loggedInCheck/LoginCheck';
+
 
 function Games() {
 
+
     return (
         <div>
-            <h1>Hello world</h1>
+            <FetchGames />
+            <LoginCheck />
         </div>
     )
 }

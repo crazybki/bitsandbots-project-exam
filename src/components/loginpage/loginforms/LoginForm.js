@@ -1,4 +1,5 @@
 import React from 'react'
+//import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -33,25 +34,29 @@ function LoginForm() {
 
         if (email === userEmailInput && password === userPasswordInput) {
             history.push('/games')
+
         } else {
-            console.log('Wrong email or password')
+            console.log('Wrong email or password');
         }
     }
 
+
     return (
         <div>
-            <Container>
+            <Container className="loginform__container">
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <div>
-                        <input {...register('email')} placeholder="Email" />
+                        <label className="loginform_label">Email:</label>
+                        <input {...register('email')} placeholder="Email" className="loginform_email" />
                         {errors.email && <p className="errormsg">{errors.email.message}</p>}
                     </div>
                     <div>
-                        <input {...register('password')} placeholder="Password" />
+                        <label className="loginform_label">Password:</label>
+                        <input {...register('password')} placeholder="Password" className="loginform_password" />
                         {errors.password && <p className="errormsg">{errors.password.message}</p>}
                     </div>
-                    <div>
-                        <button type="submit">Register</button>
+                    <div className="loginform_btncontainer">
+                        <button type="submit" className="loginform_btn">Register</button>
                     </div>
                 </Form>
             </Container>

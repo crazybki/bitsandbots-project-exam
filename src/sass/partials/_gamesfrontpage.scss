@@ -1,0 +1,16 @@
+.fetchgames_cardcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+
+.fetchgames_cardcontainer {
+    position: relative;
+}
+
+.fetchgame_loadingimg {
+    position: absolute;
+    top: 400px;
+    left: 700px;
+}

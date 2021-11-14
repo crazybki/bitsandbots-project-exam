@@ -1,0 +1,100 @@
+.frontpage_videobackground {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -999;
+}
+
+.frontpage_tabcontainer {
+    background-color: white;
+    padding: 20px 20px;
+}
+
+.fontpage_tabs {
+    width: 60%; 
+}
+
+.loginform_email {
+    width: 100%;
+    margin: 10px 0 30px 0;
+    padding: 8px 0 8px 0;
+    border-radius: 5px;
+    transition: 0.3s ease-in;
+    background-color: $inputcolor;
+    border: none;
+    box-shadow: 2px 2px 3px rgba(185, 184, 184, 0.5),
+            inset 3px 3px 5px rgba(138, 138, 138, 0.5);
+}
+
+.loginform_email:focus {
+    background-color: $inputcolor-tint;
+    border: 1px solid $inputcolor-tint;
+}
+
+::placeholder {
+    padding: 0 0 0 15px;
+    color: black;
+    text-transform: uppercase;
+}
+
+::-ms-input-placeholder { 
+    padding: 0 0 0 15px;
+  }
+
+
+.loginform_password {
+    @extend .loginform_email
+}
+
+.loginform_btncontainer {
+    text-align: center;
+}
+
+.loginform_btn {
+    background-color: $btn-color;
+    border: none;
+    padding: 10px 80px 10px 80px;
+    border-radius: 5px;
+    margin: 20px 0 0 0;
+}
+
+.loginform_label {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/***BOOTSTRAP RESETS*****/
+
+/***BOOTSTRAP RESETS - Frontpage - tabs*****/
+
+.container {
+    width: 60% !important;
+}
+
+.nav-tabs {
+    border-bottom: 0!important;
+}
+
+.nav {
+    justify-content: space-between;
+    padding-left: 0px;
+    margin: 0 0 0 120px;
+}
+/***BOOTSTRAP RESETS - Frontpage - tabs*****/
+
+.loginform__container {
+    width: 70% !important;
+}
+
+
+/***BOOTSTRAP RESETS - Frontpage - loginform*****/
+
+
+
+/***BOOTSTRAP RESETS - Frontpage - loginform*****/
+
+
+/***BOOTSTRAP RESETS*****/
