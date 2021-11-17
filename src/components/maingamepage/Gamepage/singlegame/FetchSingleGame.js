@@ -5,70 +5,68 @@ import axios from 'axios';
 
 
 function FetchSingleGame() {
+
+    const idGames = 'where id = (5000, 85031)';
+
     const [game, setGame] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(false);
 
-    const api = 'https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games';
-
-    let history = useHistory();
+    let urlPush = useHistory();
 
     const { id } = useParams();
 
     if (!id) {
-        history.push("/");
+        urlPush.push()
     }
 
-    const url = api + "/" + id;
-
+    const gameUrl = 'https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games';
+    console.log(gameUrl)
     useEffect(
         function () {
-            async function fetchData() {
+            async function getSingleGame() {
                 try {
-                    const res = await axios.post('https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games',
-                        'fields name,platforms.*, cover.*, keywords.*, summary, multiplayer_modes, genres.*, release_dates.*; where release_dates > 2015; where genres != null; where multiplayer_modes != null; where platforms = (48, 167, 169, 49,130); where platforms != null; where cover != null; limit 500;',
+                    const response = await axios.post(gameUrl,
+                        'fields name,platforms.*, cover.*, keywords.*, summary, multiplayer_modes, genres.*, release_dates.*, where id = (5000);',
                         {
                             headers: {
-                                'Client-ID': '9jay5rpgh9e5f03sezyzk6bwodru0r',
-                                'Authorization': 'Bearer sih2wquiomg7cce8pp2w0250muzw3do',
+                                'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
+                                'Authorization': 'Bearer x52tpyte8uwg06pm8hibfn0l6u3jhy',
                                 'x-requested-with': 'testing'
                             },
-                        })
+                        });
 
-                    if (res.ok) {
-                        const json = await res.json();
-                        setGame(json);
+                    if (response.ok) {
+                        const jsonResponse = await response.json();
+                        console.log(jsonResponse)
+                        setGame(jsonResponse)
                     } else {
-                        setError("An error occured");
+                        setError('An error occured')
                     }
-                } catch (error) {
-                    setError(error.toString());
-                } finally {
-                    setLoading(false);
+                }
+                catch (error) {
+                    setError(error.toString())
+                }
+
+                finally {
+                    setLoading(true)
                 }
             }
-            fetchData();
-        },
-        [url]
-    );
+            getSingleGame()
+        }, [gameUrl]
+    )
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div>Loading....</div>
     }
 
     if (error) {
-        return <div>An error occured: {error}</div>;
+        return <div>An error occured</div>
     }
 
     return (
         <div>
-            {game.map(gameData => {
-                console.log('singlegame' + gameData)
-                return <div>
-                    <p>{gameData.name}</p>
-                    <p>{gameData.summary}</p>
-                </div>
-            })}
+            <p>{game.name}</p>
         </div>
     );
 }

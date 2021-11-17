@@ -1,5 +1,7 @@
 
-
+.app_container {
+    background-color: $background;
+}
 /***BOOTSTRAP RESETS*****/
 .card-img-top {
     width: 100%;
@@ -8,3 +10,15 @@
 }
 
 /***BOOTSTRAP RESETS*****/
+
+
+/****PAGINATOR*****/
+
+.fetchgame_paginatecontainer {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/****PAGINATOR*****/

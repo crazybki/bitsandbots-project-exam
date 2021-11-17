@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Navigation />
 
-        <div className="container">
+        <div className="app_container">
           <Switch>
             <Route exact path="/">
               <FrontPage />
@@ -24,7 +24,7 @@ function App() {
             <Route path="/games">
               <Games />
             </Route>
-            <Route path="/game:id">
+            <Route path="/fetchsinglegame/:id">
               <FetchSingleGame />
             </Route>
           </Switch>
