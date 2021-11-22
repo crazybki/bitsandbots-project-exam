@@ -21,12 +21,14 @@ function App() {
             <Route exact path="/">
               <FrontPage />
             </Route>
-            <Route path="/games">
-              <Games />
-            </Route>
-            <Route path="/fetchsinglegame/:id">
-              <FetchSingleGame />
-            </Route>
+            <div className="app_container_background">
+              <Route path="/games">
+                <Games />
+              </Route>
+              <Route path="/fetchsinglegame/:id">
+                <FetchSingleGame />
+              </Route>
+            </div>
           </Switch>
         </div>
       </Router>

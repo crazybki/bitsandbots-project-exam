@@ -2,13 +2,13 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
+import ImageSlider from './imgslider/ImageSlider';
 
 
 function FetchSingleGame() {
 
-    const idGames = 'where id = (5000, 85031)';
 
-    const [game, setGame] = useState(null);
+    const [game, setGame] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
@@ -16,18 +16,19 @@ function FetchSingleGame() {
 
     const { id } = useParams();
 
+
     if (!id) {
         urlPush.push()
     }
 
-    const gameUrl = 'https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games';
-    console.log(gameUrl)
+    const gameUrl = 'https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games/';
+
     useEffect(
         function () {
             async function getSingleGame() {
                 try {
                     const response = await axios.post(gameUrl,
-                        'fields name,platforms.*, cover.*, keywords.*, summary, multiplayer_modes, genres.*, release_dates.*, where id = (5000);',
+                        'fields *, external_games.*, storyline, release_dates.*, screenshots.image_id; where screenshots != null; where id = (' + id + ');',
                         {
                             headers: {
                                 'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
@@ -36,20 +37,20 @@ function FetchSingleGame() {
                             },
                         });
 
-                    if (response.ok) {
-                        const jsonResponse = await response.json();
-                        console.log(jsonResponse)
-                        setGame(jsonResponse)
-                    } else {
-                        setError('An error occured')
-                    }
+
+
+
+                    setGame(response.data[0])
+                    console.log(response.data)
+
+
                 }
                 catch (error) {
                     setError(error.toString())
                 }
 
                 finally {
-                    setLoading(true)
+                    setLoading(false)
                 }
             }
             getSingleGame()
@@ -66,7 +67,9 @@ function FetchSingleGame() {
 
     return (
         <div>
-            <p>{game.name}</p>
+            <ImageSlider images={game} />
+            <p>name: {game.name}</p>
+            <p>summary: {game.summary}</p>
         </div>
     );
 }

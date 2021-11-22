@@ -16,6 +16,10 @@
     width: 60%; 
 }
 
+.nav-item {
+    background-color: yellow !important;
+}
+
 .loginform_email {
     width: 100%;
     margin: 10px 0 30px 0;
@@ -71,7 +75,11 @@
 /***BOOTSTRAP RESETS - Frontpage - tabs*****/
 
 .container {
-    width: 60% !important;
+    width: 40% !important;
+}
+
+.frontpage_containercenter {
+    margin: 150px;
 }
 
 .nav-tabs {
@@ -82,6 +90,10 @@
     justify-content: space-between;
     padding-left: 0px;
     margin: 0 0 0 120px;
+}
+
+.nav-item {
+    color: yellow !important;
 }
 /***BOOTSTRAP RESETS - Frontpage - tabs*****/
 
@@ -98,3 +110,23 @@
 
 
 /***BOOTSTRAP RESETS*****/
+
+.navigation_logo {
+    width: 250px;
+}
+
+.navigation_cartcontainer {
+    display: flex;
+    justify-content:space-between;
+}
+
+.navigation_cart{
+    width: 35px;
+    height: 35px;
+    margin: 20px 20px 0 0;
+}
+
+.navgation_container {
+    background-color: #1f0275;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
