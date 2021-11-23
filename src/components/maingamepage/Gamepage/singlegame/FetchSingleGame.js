@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
 import ImageSlider from './imgslider/ImageSlider';
+import SingleGameBtn from '../../button/SingleGameBtn';
+
+
 
 
 function FetchSingleGame() {
@@ -28,7 +31,7 @@ function FetchSingleGame() {
             async function getSingleGame() {
                 try {
                     const response = await axios.post(gameUrl,
-                        'fields *, external_games.*, storyline, release_dates.*, screenshots.image_id; where screenshots != null; where id = (' + id + ');',
+                        'fields name, external_games.*, storyline, release_dates.*, screenshots.image_id; where screenshots != null; where id = (' + id + ');',
                         {
                             headers: {
                                 'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
@@ -70,6 +73,7 @@ function FetchSingleGame() {
             <ImageSlider images={game} />
             <p>name: {game.name}</p>
             <p>summary: {game.summary}</p>
+            <SingleGameBtn singlegameBtn={game.name} />
         </div>
     );
 }

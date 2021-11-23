@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from './components/navigation/Navigation';
 import Games from './components/maingamepage/Games';
 import FetchSingleGame from './components/maingamepage/Gamepage/singlegame/FetchSingleGame';
-
+import CartContext from './components/Context/CartContext';
 
 
 
@@ -13,25 +13,27 @@ import FetchSingleGame from './components/maingamepage/Gamepage/singlegame/Fetch
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navigation />
+      <CartContext>
+        <Router>
+          <Navigation />
 
-        <div className="app_container">
-          <Switch>
-            <Route exact path="/">
-              <FrontPage />
-            </Route>
-            <div className="app_container_background">
-              <Route path="/games">
-                <Games />
+          <div className="app_container">
+            <Switch>
+              <Route exact path="/">
+                <FrontPage />
               </Route>
-              <Route path="/fetchsinglegame/:id">
-                <FetchSingleGame />
-              </Route>
-            </div>
-          </Switch>
-        </div>
-      </Router>
+              <div className="app_container_background">
+                <Route path="/games">
+                  <Games />
+                </Route>
+                <Route path="/fetchsinglegame/:id">
+                  <FetchSingleGame />
+                </Route>
+              </div>
+            </Switch>
+          </div>
+        </Router>
+      </CartContext>
     </div>
   );
 }
