@@ -123,10 +123,17 @@
 .navigation_cart{
     width: 35px;
     height: 35px;
-    margin: 20px 20px 0 0;
+    margin: 10px 10px 20px 0;
+    display: inline-block;
 }
 
 .navgation_container {
     background-color: #1f0275;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
+
+.navigation_logout {
+    background-color: $btn-color;
+    margin: 30px 35px 0 20px;
+    display: inline-block;
+} 

@@ -6,6 +6,7 @@ import loadingscreen from "../../../assets/loadingscreen.gif"
 import Card from 'react-bootstrap/Card'
 import SingleGame from './singlegame/SingleGame.js';
 import ReactPaginate from 'react-paginate';
+import BuyNowBtn from '../button/BuyNowBtn.js';
 
 
 
@@ -88,10 +89,10 @@ function FetchGames() {
                                 <Card.Body>
                                     <Card.Title>{games.name}</Card.Title>
                                     <Card.Text>
-
                                     </Card.Text>
                                 </Card.Body>
                                 <SingleGame id={id} name={name} />
+                                <BuyNowBtn gameName={games.name} />
                             </Card>
                         </div>
                     })}
