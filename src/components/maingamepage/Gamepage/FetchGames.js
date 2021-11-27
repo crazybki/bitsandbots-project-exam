@@ -7,10 +7,12 @@ import Card from 'react-bootstrap/Card'
 import SingleGame from './singlegame/SingleGame.js';
 import ReactPaginate from 'react-paginate';
 import BuyNowBtn from '../button/BuyNowBtn.js';
+import Prices from '../button/Prices.js';
+import FilterGenres from './buttonsFilter/FilterGenres.js';
 
 
 
-function FetchGames() {
+function FetchGames(prop) {
 
     const [apiData, setApiData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -19,11 +21,13 @@ function FetchGames() {
 
     const [pushPage, setpushPage] = useState(0);
     const [gamesInOnepage] = useState(10);
-    const [pageCount, setPageCount] = useState(0)
+    const [pageCount, setPageCount] = useState(0);
 
-
-
-
+    function onFilter(filterData) {
+        let filteredGames = [
+            ...filterData
+        ]
+    }
 
     useEffect(function () {
         async function getGames() {
@@ -39,7 +43,6 @@ function FetchGames() {
                         },
                     });
                 setApiData(res.data);
-                console.log(res.data)
                 setPageCount(Math.ceil(res.data.length / gamesInOnepage))
                 setApiData(res.data.slice(pushPage, pushPage + gamesInOnepage))
             }
@@ -57,11 +60,12 @@ function FetchGames() {
 
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
-        console.log(selectedPage * gamesInOnepage)
+
 
         setpushPage((selectedPage + 1) * gamesInOnepage)
 
     }
+
 
 
     if (loading) {
@@ -75,24 +79,26 @@ function FetchGames() {
     }
 
 
-
     return (
         <>
             <div className="fetchgames_container">
                 <h1>Bits and Bots</h1>
+                <FilterGenres onFiltered={onFilter} />
                 <div className="fetchgames_cardcontainer">
-                    {apiData.map(games => {
-                        const { name, id } = games;
-                        return <div key={games.id}>
+                    {apiData.map(item => {
+
+                        const { name, id } = item;
+                        return <div key={item.id}>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img className="games_cardimg" variant="top" src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${games.cover.image_id}.jpg`} alt="Cover of `${games.name}`" />
+                                <Card.Img className="games_cardimg" variant="top" src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`} alt="Cover of `${games.name}`" />
                                 <Card.Body>
-                                    <Card.Title>{games.name}</Card.Title>
+                                    <Card.Title>{item.name}</Card.Title>
                                     <Card.Text>
                                     </Card.Text>
                                 </Card.Body>
+                                <Prices />
                                 <SingleGame id={id} name={name} />
-                                <BuyNowBtn gameName={games.name} />
+                                <BuyNowBtn gameName={item.name} />
                             </Card>
                         </div>
                     })}

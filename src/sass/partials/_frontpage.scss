@@ -17,7 +17,8 @@
 }
 
 .nav-item {
-    background-color: yellow !important;
+    background-color: $background !important; 
+
 }
 
 .loginform_email {
@@ -101,6 +102,14 @@
     width: 70% !important;
 }
 
+.nav-link {
+    color: white !important;
+}
+
+.nav-link.active {
+    background-color: #1f0275;
+}
+
 
 /***BOOTSTRAP RESETS - Frontpage - loginform*****/
 
@@ -140,4 +149,8 @@
 
 .navigation_numberitems {
     color: white;
+}
+
+.frontpage_loginbtn {
+    color: #1f0275;
 }

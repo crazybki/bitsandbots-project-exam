@@ -13,7 +13,7 @@ function FrontPage() {
             <div className="frontpage_containercenter">
                 <Container className="frontpage_tabcontainer">
                     <Tabs defaultActiveKey="Login" className="mb-3 fontpage_tabs">
-                        <Tab eventKey="Login" title="Login">
+                        <Tab className="frontpage_loginbtn" eventKey="Login" title="Login">
                             <LoginForm />
                         </Tab>
                         <Tab eventKey="Sign up" title="Sign up">

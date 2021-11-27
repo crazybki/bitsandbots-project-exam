@@ -14,7 +14,6 @@ function BuyNowBtn(props) {
     }
 
 
-
     return (
         <div>
             <button onClick={handleBuybtn} value={props.gameName}>Buy</button>

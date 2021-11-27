@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
 import ImageSlider from './imgslider/ImageSlider';
 import SingleGameBtn from '../../button/SingleGameBtn';
+import Prices from '../../button/Prices';
 
 
 
@@ -57,7 +58,7 @@ function FetchSingleGame() {
                 }
             }
             getSingleGame()
-        }, [gameUrl]
+        }, [id]
     )
 
     if (loading) {
@@ -73,6 +74,7 @@ function FetchSingleGame() {
             <ImageSlider images={game} />
             <p>name: {game.name}</p>
             <p>summary: {game.summary}</p>
+            <Prices />
             <SingleGameBtn singlegameBtn={game.name} />
         </div>
     );
