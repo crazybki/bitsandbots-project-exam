@@ -18,7 +18,6 @@
 
 .nav-item {
     background-color: $background !important; 
-
 }
 
 .loginform_email {
@@ -102,11 +101,9 @@
     width: 70% !important;
 }
 
-.nav-link {
-    color: white !important;
-}
 
-.nav-link.active {
+
+.nav-link .active {
     background-color: #1f0275;
 }
 
@@ -153,4 +150,36 @@
 
 .frontpage_loginbtn {
     color: #1f0275;
+}
+
+
+
+//**Tablet****//
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 80% !important;
+    }
+
+    .nav {
+        margin: 0 0 0 75px;
+    }
+}
+
+//**Tablet****//
+
+
+
+@media screen and (max-width: 640px) {
+    .container {
+        width: 100% !important;
+    }
+
+    .frontpage_containercenter {
+        margin: 80px 40px 40px 40px;
+    }
+
+    .nav {
+        margin: 0 0 0 60px;
+    }
 }
