@@ -22,7 +22,7 @@ function FrontPage() {
                     </Tabs>
                 </Container>
             </div>
-            <video autoPlay loop muted className="frontpage_videobackground">
+            <video autoPlay loop muted playsInline className="frontpage_videobackground">
                 <source src={backgroundVideo2} type='video/mp4' />
             </video>
         </div>
