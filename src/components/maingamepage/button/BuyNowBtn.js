@@ -1,8 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
+
 
 
 function BuyNowBtn(props) {
 
+    const [savedGames, useSavedGames] = useState([])
+    
     console.log('singlegame' + props)
 
     function handleBuybtn(e) {

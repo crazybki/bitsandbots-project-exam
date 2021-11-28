@@ -24,7 +24,7 @@ function Navigation() {
         <div className="navgation_container">
             <div className="navigation_cartcontainer">
                 <img className="navigation_logo" src={logo} alt="logog bits&bots" />
-                <div>
+                <div className="navigation_cartimg">
                     <img className="navigation_cart" src={cart} alt="cart for the page" />
                     <p className="navigation_numberitems">{gameSaved}</p>
                     <button className="navigation_logout" onClick={logOut}>Log out</button>

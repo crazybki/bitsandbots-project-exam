@@ -129,7 +129,7 @@
 .navigation_cart{
     width: 35px;
     height: 35px;
-    margin: 10px 10px 20px 0;
+    margin: 10px 20px 20px 0;
     display: inline-block;
 }
 
@@ -140,9 +140,14 @@
 
 .navigation_logout {
     background-color: $btn-color;
-    margin: 30px 35px 0 20px;
     display: inline-block;
+    margin: 15px 0 15px 0;
 } 
+
+.navigation_cartimg {
+    display: flex;
+    margin: 0 15px 0 15px;
+}
 
 .navigation_numberitems {
     color: white;
@@ -176,7 +181,7 @@
     }
 
     .frontpage_containercenter {
-        margin: 80px 40px 40px 40px;
+        margin: 80px 30px 30px 30px;
     }
 
     .nav {
