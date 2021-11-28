@@ -15,7 +15,7 @@ function SingleGameBtn(props) {
 
     return (
         <div>
-            <button onClick={handleBuybtn} value={props.singlegameBtn}>Buy</button>
+            <button className="singlegame_btn" onClick={handleBuybtn} value={props.singlegameBtn}>Buy</button>
         </div>
     )
 }

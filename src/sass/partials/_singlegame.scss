@@ -3,3 +3,52 @@
     height: auto;
     margin: 0 auto !important;
 }
+
+.singlegame_ratings {
+    display: inline-block;
+    color: chartreuse;
+    padding: 15px;
+    background-color: blueviolet;
+}
+
+.singlegame_ratingcontainer {
+    display: flex;
+    justify-content: end;
+    margin: 35px;
+}
+
+.singlegame_btncontainer {
+    display: flex;
+    justify-content: end;
+    margin: 30px;
+}
+
+.singlegame_heading1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 30px 0 0 0;
+    font-size: $heading1;
+    color: $neutralcolor;
+}
+
+.singelgame_heading2 {
+    text-transform: uppercase;
+}
+
+.singlegame_ratingnumber {
+    font-size:$heading2;
+    text-align: center;
+}
+
+.singlegame_background {
+    background-color: blueviolet;
+    padding: 20px;
+}
+
+.singlegame_btn {
+    background-color: chartreuse;
+}
+
+.carousel-item {
+    margin: 30px 0 0 0;
+}

@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'VT323';
+    src: url(../../fonts/pixelsfont/VT323-Regular.ttf);
+}
+
+h1 {
+    font-family: $pixelFont;
+}
+
+h5 {
+    font-family: $pixelFont !important;
+}
+
+body {
+    font-family: $pixelFont !important;
+    font-size: $font-size !important;
+}
+
+p {
+    font-family: $pixelFont;
+}

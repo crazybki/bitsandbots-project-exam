@@ -34,8 +34,8 @@ function FilterGenres(props) {
             <div className="filter_btncontainer">
                 <button className="filter_btns" onClick={handleFilter} value={49}>XBOX</button>
                 <button className="filter_btns" onClick={handleFilter} value={130}>PS4</button>
-                <button className="filter_btns" onClick={handleFilter} value={49}>XBOX</button>
-                <button className="filter_btns" onClick={handleFilter} value={130}>PS4</button>
+                <button className="filter_btns" onClick={handleFilter} value={49}>Nintendo</button>
+                <button className="filter_btns" onClick={handleFilter} value={130}>PC</button>
             </div>
             <div className="fetchgames_cardcontainer">
                 {filteredData.map(games => {

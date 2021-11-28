@@ -6,8 +6,9 @@ import { useState } from 'react';
 function BuyNowBtn(props) {
 
     const [savedGames, useSavedGames] = useState([])
-    
+
     console.log('singlegame' + props)
+
 
     function handleBuybtn(e) {
         let input = e.target.value;
@@ -16,6 +17,7 @@ function BuyNowBtn(props) {
         else localStorage.setItem("games", JSON.stringify([input]));
         console.log(input)
     }
+
 
 
     return (

@@ -32,7 +32,7 @@ function FetchSingleGame() {
             async function getSingleGame() {
                 try {
                     const response = await axios.post(gameUrl,
-                        'fields name, external_games.*, storyline, release_dates.*, screenshots.image_id; where screenshots != null; where id = (' + id + ');',
+                        'fields name, genres.*, artworks.*, platforms.*, release_dates.*, cover.*, summary, rating, screenshots.*, videos.*; where cover != null; where videos != null; where id = (' + id + ');',
                         {
                             headers: {
                                 'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
@@ -68,15 +68,42 @@ function FetchSingleGame() {
     if (error) {
         return <div>An error occured</div>
     }
+    let youtubeid = game.videos[0].video_id
+
+    console.log(youtubeid)
 
     return (
-        <div>
+        <>
             <ImageSlider images={game} />
-            <p>name: {game.name}</p>
+            <h1 className="singlegame_heading1">{game.name}</h1>
+            <div className="singlegame_btncontainer">
+                <div className="singlegame_background">
+                    <SingleGameBtn singlegameBtn={game.name} />
+                    <Prices />
+                </div>
+            </div>
+            <div className="singlegame_ratingcontainer">
+                <div className="singlegame_ratings">
+                    <h2 className="singelgame_heading2">Rating</h2>
+                    <p className="singlegame_ratingnumber">{Math.floor(game.rating)}</p>
+                </div>
+            </div>
             <p>summary: {game.summary}</p>
-            <Prices />
-            <SingleGameBtn singlegameBtn={game.name} />
-        </div>
+            <div>
+                <h3>Game details</h3>
+                {game.genres.map(item => {
+                    return <p>Genre: {item.name}</p>
+                })}
+                <p>Platform: {game.platforms[0].abbreviation}</p>
+                <p>Release date: {game.release_dates[0].human}</p>
+            </div>
+            <iframe
+                width="400"
+                height="280"
+                src={`https://www.youtube.com/embed/${youtubeid}`}
+                title={game.name}
+            />
+        </>
     );
 }
 
