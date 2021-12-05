@@ -7,8 +7,7 @@ import Card from 'react-bootstrap/Card'
 import SingleGame from './singlegame/SingleGame.js';
 import ReactPaginate from 'react-paginate';
 import BuyNowBtn from '../button/BuyNowBtn.js';
-import Prices from '../button/Prices.js';
-import FilterGenres from './buttonsFilter/FilterGenres.js';
+
 
 
 
@@ -18,23 +17,16 @@ function FetchGames(prop) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    //Filter useState
+    const [filteredGames, setfilteredGames] = useState([])
 
-    const [pushPage, setpushPage] = useState(0);
-    const [gamesInOnepage] = useState(10);
-    const [pageCount, setPageCount] = useState(0);
-
-    function onFilter(filterData) {
-        let filteredGames = [
-            ...filterData
-        ]
-    }
 
     useEffect(function () {
         async function getGames() {
 
             try {
                 const res = await axios.post('https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games',
-                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6); limit 200;',
+                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6); limit 150;',
                     {
                         headers: {
                             'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
@@ -43,8 +35,8 @@ function FetchGames(prop) {
                         },
                     });
                 setApiData(res.data);
-                setPageCount(Math.ceil(res.data.length / gamesInOnepage))
-                setApiData(res.data.slice(pushPage, pushPage + gamesInOnepage))
+                console.log(apiData)
+                setfilteredGames(res.data)
             }
             catch (error) {
                 setError(error.toString())
@@ -56,15 +48,7 @@ function FetchGames(prop) {
             }
         }
         getGames()
-    }, [pushPage])
-
-    const handlePageClick = (e) => {
-        const selectedPage = e.selected;
-
-
-        setpushPage((selectedPage + 1) * gamesInOnepage)
-
-    }
+    }, [])
 
 
 
@@ -78,53 +62,72 @@ function FetchGames(prop) {
         return <div>Error: An error occured</div>
     }
 
+    //Filters on genres
+
+    let adventure = apiData.filter(e => e.genres[0].name === "Adventure")
+    let shooter = apiData.filter(e => e.genres[0].name === "Shooter")
+    let simulator = apiData.filter(e => e.genres[0].name === "Simulator")
+    let racing = apiData.filter(e => e.genres[0].name === "Racing")
+
+    function handleFilterAdventure() {
+        setfilteredGames(adventure)
+    }
+
+    function handleFilterShooter() {
+        setfilteredGames(shooter)
+    }
+
+    function handleFilterSimulator() {
+        setfilteredGames(simulator)
+    }
+
+    function handleFilterRacing() {
+        setfilteredGames(racing)
+    }
+
+    function handleRemoveFilter() {
+        setfilteredGames(apiData);
+    }
+
 
     return (
         <>
             <div className="fetchgames_container">
                 <h1>Bits and Bots</h1>
-                <FilterGenres onFiltered={onFilter} />
+                <div className="fetchgame_flexcontbtn">
+                    <div className="fetchgame_btndiv">
+                        <button className="fetchgame_btn" onClick={() => handleFilterAdventure()}>Adventure</button>
+                    </div>
+                    <div className="fetchgame_btndiv">
+                        <button className="fetchgame_btn" onClick={() => handleFilterShooter()}>Shooter</button>
+                    </div>
+                    <div className="fetchgame_btndiv">
+                        <button className="fetchgame_btn" onClick={() => handleFilterSimulator()}>Simulator</button>
+                    </div>
+                    <div className="fetchgame_btndiv">
+                        <button className="fetchgame_btn" onClick={() => handleFilterRacing()}>Racing</button>
+                    </div>
+                    <div className="fetchgame_btndiv">
+                        <button className="fetchgame_btn" onClick={() => handleRemoveFilter()}>Remove filter</button>
+                    </div>
+                </div>
                 <div className="fetchgames_cardcontainer">
-                    {apiData.map(item => {
-
+                    {filteredGames.map(item => {
                         const { name, id } = item;
                         return <div key={item.id}>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img className="games_cardimg" variant="top" src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`} alt="Cover of `${games.name}`" />
-                                <Card.Body>
-                                    <Card.Title>{item.name}</Card.Title>
-                                    <Card.Text>
-                                    </Card.Text>
-                                </Card.Body>
-                                <Prices />
-                                <SingleGame id={id} name={name} />
-                                <BuyNowBtn gameName={item.name} />
-                            </Card>
+                            <div className="fetchgame_container">
+                                <img className="games_cardimg" variant="top" src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`} alt="Cover of `${games.name}`" />
+                                <div className="fetchgames_titlecontainer">
+                                    <h2 className="games_title">{item.name}</h2>
+                                </div>
+                                <div className="fetchgame_btncontainer">
+                                    <BuyNowBtn gameName={item.name} gameImg={item} />
+                                    <p>$9.99</p>
+                                    <SingleGame id={id} name={name} />
+                                </div>
+                            </div>
                         </div>
                     })}
-                </div>
-                <div className="fetchgame_paginatecontainer">
-                    <ReactPaginate
-                        previousLabel={"< previous"}
-                        nextLabel={"next >"}
-                        breakLabel={"..."}
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        nextLinkClassName="page-link"
-                        breakClassName={"page-item"}
-                        breakLinkClassName="page-link"
-                        pageCount={pageCount}
-                        marginPagesDisplayed={5}
-                        pageRangeDisplayed={4}
-                        onPageChange={handlePageClick}
-                        containerClassName={"pagination"}
-                        subContainerClassName={"pages pagination"}
-                        activeClassName={"active"}
-                        renderOnZeroPageCount={null}
-                    />
                 </div>
             </div>
         </>

@@ -12,6 +12,8 @@ function LoginCheck() {
 
     if (useEmail === null && usePassword === null) {
         history.push('/')
+    } else {
+        history.push('/games')
     }
 
     return (

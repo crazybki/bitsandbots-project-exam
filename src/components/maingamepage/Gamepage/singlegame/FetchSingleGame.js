@@ -4,7 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
 import ImageSlider from './imgslider/ImageSlider';
 import SingleGameBtn from '../../button/SingleGameBtn';
-import Prices from '../../button/Prices';
+
 
 
 
@@ -45,7 +45,7 @@ function FetchSingleGame() {
 
 
                     setGame(response.data[0])
-                    console.log(response.data)
+
 
 
                 }
@@ -70,7 +70,6 @@ function FetchSingleGame() {
     }
     let youtubeid = game.videos[0].video_id
 
-    console.log(youtubeid)
 
     return (
         <>
@@ -79,7 +78,6 @@ function FetchSingleGame() {
             <div className="singlegame_btncontainer">
                 <div className="singlegame_background">
                     <SingleGameBtn singlegameBtn={game.name} />
-                    <Prices />
                 </div>
             </div>
             <div className="singlegame_ratingcontainer">

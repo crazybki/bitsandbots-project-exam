@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function SingleGame({ name, id }) {
-    console.log(name)
+
     return (
-        <div>
+        <div className="singlegame_container">
             <Link to={`fetchsinglegame/${id}`}>
-                <p>{name}</p>
+                <p className="singlegame_link">See more</p>
             </Link>
         </div>
     )

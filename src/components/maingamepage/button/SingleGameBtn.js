@@ -8,7 +8,8 @@ function SingleGameBtn(props) {
         const orderedGames = JSON.parse(localStorage.getItem("games"));
         if (orderedGames) localStorage.setItem("games", JSON.stringify([...orderedGames, selectedGame]));
         else localStorage.setItem("games", JSON.stringify([selectedGame]));
-        console.log(selectedGame)
+
+
     }
 
 

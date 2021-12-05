@@ -1,13 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-
+import React, { useState } from 'react';
 
 
 function BuyNowBtn(props) {
 
-    const [savedGames, useSavedGames] = useState([])
-
-    console.log('singlegame' + props)
+    console.log(props.gameImg.cover.image_id)
+    const [boughtGame, setBoughtGame] = useState(true)
 
 
     function handleBuybtn(e) {
@@ -16,15 +13,27 @@ function BuyNowBtn(props) {
         if (orderedGames) localStorage.setItem("games", JSON.stringify([...orderedGames, input]));
         else localStorage.setItem("games", JSON.stringify([input]));
         console.log(input)
+        setBoughtGame(false);
     }
 
 
 
+
+    function handleRemoveGame(e) {
+        let gameName = e.target.value;
+        let localStored = JSON.parse(localStorage.getItem('games'));
+        localStorage.setItem("games", JSON.stringify(localStored.filter(fav => fav !== gameName)));
+        console.log(gameName)
+        setBoughtGame(true);
+    }
     return (
         <div>
-            <button onClick={handleBuybtn} value={props.gameName}>Buy</button>
+            {boughtGame
+                ? <button className="buynow_btnbuy" onClick={handleBuybtn} value={JSON.stringify(props.gameImg)}>Buy</button>
+                : <button className="buynow_btn" onClick={handleRemoveGame} value={JSON.stringify(props.gameImg)}>Bought</button>}
         </div>
+
     )
 }
 
-export default BuyNowBtn
+export default BuyNowBtn;

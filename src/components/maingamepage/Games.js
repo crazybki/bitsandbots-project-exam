@@ -9,7 +9,6 @@ function Games() {
     return (
         <div>
             <FetchGames />
-            <LoginCheck />
         </div>
     )
 }

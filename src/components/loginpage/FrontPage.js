@@ -5,11 +5,13 @@ import LoginForm from './loginforms/LoginForm'
 import SignUpForm from './loginforms/SignUpForm'
 import { Container } from 'react-bootstrap'
 import backgroundVideo2 from '../../assets/Characters - compressed.mp4'
+import LoginCheck from '../maingamepage/loggedInCheck/LoginCheck'
 
 
 function FrontPage() {
     return (
         <div>
+            <LoginCheck />
             <div className="frontpage_containercenter">
                 <Container className="frontpage_tabcontainer">
                     <Tabs defaultActiveKey="Login" className="mb-3 fontpage_tabs">
