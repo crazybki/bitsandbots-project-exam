@@ -30,3 +30,7 @@ body {
 p {
     font-family: $pixelFont;
 }
+
+body {
+    box-sizing: border-box;
+}

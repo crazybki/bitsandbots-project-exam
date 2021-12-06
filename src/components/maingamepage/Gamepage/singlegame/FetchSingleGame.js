@@ -41,13 +41,8 @@ function FetchSingleGame() {
                             },
                         });
 
-
-
-
                     setGame(response.data[0])
-
-
-
+                    console.log(game)
                 }
                 catch (error) {
                     setError(error.toString())
@@ -80,20 +75,24 @@ function FetchSingleGame() {
                     <SingleGameBtn singlegameBtn={game.name} />
                 </div>
             </div>
+            <div className="singlegame_sumdetailscontainer">
+                <div className="singlegame_summarycontainer">
+                    <p>summary: {game.summary}</p>
+                </div>
+                <div className="singlegame_gamedetails">
+                    <h3>Game details</h3>
+                    {game.genres.map(item => {
+                        return <p>Genre: {item.name}</p>
+                    })}
+                    <p>Platform: {game.platforms[0].abbreviation}</p>
+                    <p>Release date: {game.release_dates[0].human}</p>
+                </div>
+            </div>
             <div className="singlegame_ratingcontainer">
                 <div className="singlegame_ratings">
                     <h2 className="singelgame_heading2">Rating</h2>
                     <p className="singlegame_ratingnumber">{Math.floor(game.rating)}</p>
                 </div>
-            </div>
-            <p>summary: {game.summary}</p>
-            <div>
-                <h3>Game details</h3>
-                {game.genres.map(item => {
-                    return <p>Genre: {item.name}</p>
-                })}
-                <p>Platform: {game.platforms[0].abbreviation}</p>
-                <p>Release date: {game.release_dates[0].human}</p>
             </div>
             <iframe
                 width="400"

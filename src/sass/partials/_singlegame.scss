@@ -52,3 +52,26 @@
 .carousel-item {
     margin: 30px 0 0 0;
 }
+
+.singlegame_summarycontainer {
+    background-color: $neutralcolor;
+    padding: 20px;
+    border-radius: 5px;
+    width: 900px;
+    margin: 0 0 0 110px;
+}
+
+.singlegame_sumdetailscontainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.singlegame_gamedetails {
+    background-color:blueviolet;
+    margin: 0 110px 0 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    height: 250px;
+    color: chartreuse;
+}
+

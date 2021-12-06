@@ -26,7 +26,7 @@ function FetchGames(prop) {
 
             try {
                 const res = await axios.post('https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games',
-                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6); limit 150;',
+                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6); limit 120;',
                     {
                         headers: {
                             'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',

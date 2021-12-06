@@ -69,6 +69,7 @@
 .fetchgame_flexcontbtn {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .fetchgame_btndiv {
@@ -134,4 +135,33 @@ a:-webkit-any-link{
 
 @media screen and (max-width: 1024px) {
 
+}
+
+@media screen and (max-width: 640px) {
+    .fetchgame_container {
+        margin: 40px 0 0 0;
+        background-color: white;
+        height: 450px;
+        width: 250px;
+    }
+
+    .games_cardimg {
+        height: 350px;
+        width: 250px;
+    }
+
+    .fetchgames_cardcontainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fetchgames_titlecontainer {
+        width: 170px;
+    }
+
+    .fetchgame_container {
+        margin: 40px 20px 40px 20px;
+    }
 }
