@@ -54,7 +54,9 @@
 }
 
 .singlegame_summarycontainer {
-    background-color: $neutralcolor;
+    background-color: blueviolet;
+    color: chartreuse;
+    font-size: $paginator;
     padding: 20px;
     border-radius: 5px;
     width: 900px;
@@ -66,11 +68,18 @@
     justify-content: space-between;
 }
 
+.singlegame_gameheading {
+    text-align: center;
+    font-size: $heading2;
+}
+
 .singlegame_gamedetails {
     background-color:blueviolet;
     margin: 0 110px 0 0;
+    font-size: $paginator;
     padding: 10px 20px;
     border-radius: 5px;
+    width: 400px;
     height: 250px;
     color: chartreuse;
 }

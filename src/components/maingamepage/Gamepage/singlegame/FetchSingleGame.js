@@ -77,10 +77,10 @@ function FetchSingleGame() {
             </div>
             <div className="singlegame_sumdetailscontainer">
                 <div className="singlegame_summarycontainer">
-                    <p>summary: {game.summary}</p>
+                    <p>{game.summary}</p>
                 </div>
                 <div className="singlegame_gamedetails">
-                    <h3>Game details</h3>
+                    <h3 className="singlegame_gameheading">Game details</h3>
                     {game.genres.map(item => {
                         return <p>Genre: {item.name}</p>
                     })}
