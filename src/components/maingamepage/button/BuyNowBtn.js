@@ -1,37 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 function BuyNowBtn(props) {
 
-    console.log(props.gameImg.cover.image_id)
     const [boughtGame, setBoughtGame] = useState(true)
 
+    //  console.log(props.gameImg.cover.id)
+    function handleBuybtn(id, name, img, price) {
+        const orderedGames = JSON.parse(localStorage.getItem('game'));
+        let gameName = name;
+        let gameImg = img;
+        let gamePrice = price
+        let newGames = {
+            'id': id,
+            'name': gameName,
+            'image': gameImg,
+            'price': gamePrice
+        }
 
-    function handleBuybtn(e) {
-        let input = e.target.value;
-        const orderedGames = JSON.parse(localStorage.getItem("games"));
-        if (orderedGames) localStorage.setItem("games", JSON.stringify([...orderedGames, input]));
-        else localStorage.setItem("games", JSON.stringify([input]));
-        console.log(input)
+        if (orderedGames) localStorage.setItem('game', JSON.stringify([...orderedGames, newGames]));
+        else localStorage.setItem('game', JSON.stringify([{
+            'id': id,
+            'name': gameName,
+            'image': gameImg,
+            'price': gamePrice
+        }]))
         setBoughtGame(false);
+
+        console.log(price)
     }
 
 
-
-
-    function handleRemoveGame(e) {
-        let gameName = e.target.value;
-        let localStored = JSON.parse(localStorage.getItem('games'));
-        localStorage.setItem("games", JSON.stringify(localStored.filter(fav => fav !== gameName)));
-        console.log(gameName)
+    function handleRemoveGame(id) {
+        let localStored = JSON.parse(localStorage.getItem('game', id));
+        localStorage.setItem("game", JSON.stringify(localStored.filter(item => {
+            console.log(item.id !== id)
+        })));
         setBoughtGame(true);
     }
+
+
     return (
         <div>
             {boughtGame
-                ? <button className="buynow_btnbuy" onClick={handleBuybtn} value={JSON.stringify(props.gameImg)}>Buy</button>
-                : <button className="buynow_btn" onClick={handleRemoveGame} value={JSON.stringify(props.gameImg)}>Bought</button>}
-        </div>
+                ? <button className="buynow_btnbuy" onClick={() => handleBuybtn(props.gameImg.cover.id, props.gameImg.name, props.gameImg.cover.image_id, 9.99)}>Buy</button>
+                : <button className="buynow_btn" onClick={() => handleRemoveGame(props.gameImg.cover.name, props.gameImg.cover.id, props.gameImg.cover.image_id, 9.99)} > Bought</button>}
+        </div >
 
     )
 }

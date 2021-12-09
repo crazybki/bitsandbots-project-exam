@@ -22,15 +22,14 @@ h4 {
 h5 {
     font-family: $pixelFont !important;
 }
-body {
+.app_container {
     font-family: $pixelFont !important;
     font-size: $font-size !important;
+    background-color: rgb(14, 11, 22);
+    box-sizing: border-box;
 }
 
 p {
     font-family: $pixelFont;
 }
 
-body {
-    box-sizing: border-box;
-}

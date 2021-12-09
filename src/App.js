@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from './components/navigation/Navigation';
 import Games from './components/maingamepage/Games';
 import FetchSingleGame from './components/maingamepage/Gamepage/singlegame/FetchSingleGame';
+import AddToCart from './components/maingamepage/cartpage/AddToCart';
+import CheckoutPage from './components/maingamepage/checkout/CheckoutPage';
 
 
 
@@ -28,6 +30,12 @@ function App() {
               </Route>
               <Route path="/fetchsinglegame/:id">
                 <FetchSingleGame />
+              </Route>
+              <Route path="/addtocart">
+                <AddToCart />
+              </Route>
+              <Route path="/checkoutpage">
+                <CheckoutPage />
               </Route>
             </div>
           </Switch>

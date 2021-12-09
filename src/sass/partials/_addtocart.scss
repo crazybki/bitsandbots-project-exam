@@ -1,0 +1,38 @@
+.addtocart_heading {
+    color: $neutralcolor;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 45px 0 0 0;
+}
+
+.addtocart_container {
+    display: grid; 
+    grid-template-columns: 1fr 165px 3fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 26px;
+  }
+  
+  .addtocart_image { 
+    grid-area: 1 / 3 / 2 / 3; 
+    margin: 20px 0 20px 0;
+    }
+
+  
+  .addtocart_name { 
+    grid-area: 1 / 2 / 2 / 5;
+    text-align: center;
+    margin: 50px 0 0 0;
+    color: $neutralcolor;
+    text-transform: uppercase;
+
+    }
+  
+  .addtocart_btn { 
+    grid-area: 1 / 4 / 1 / 5; 
+    margin: 20px 0 20px 0;
+    width: 40px;
+    height: 40px;
+    }
+
+
+

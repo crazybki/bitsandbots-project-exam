@@ -3,11 +3,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { TOKEN, CLIENT_ID } from '../../consts/ApiInfo.js';
 import loadingscreen from "../../../assets/loadingscreen.gif"
-import Card from 'react-bootstrap/Card'
 import SingleGame from './singlegame/SingleGame.js';
 import ReactPaginate from 'react-paginate';
 import BuyNowBtn from '../button/BuyNowBtn.js';
-
+import { Link } from "react-router-dom";
 
 
 
@@ -16,6 +15,7 @@ function FetchGames(prop) {
     const [apiData, setApiData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
 
     //Filter useState
     const [filteredGames, setfilteredGames] = useState([])
@@ -26,7 +26,7 @@ function FetchGames(prop) {
 
             try {
                 const res = await axios.post('https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games',
-                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6); limit 120;',
+                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6);  limit 120;',
                     {
                         headers: {
                             'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
@@ -93,7 +93,13 @@ function FetchGames(prop) {
     return (
         <>
             <div className="fetchgames_container">
-                <h1>Bits and Bots</h1>
+                <h1
+                >Bits and Bots</h1>
+                <div>
+                    <Link to="/addtocart">
+                        <p>Cart items</p>
+                    </Link>
+                </div>
                 <div className="fetchgame_flexcontbtn">
                     <div className="fetchgame_btndiv">
                         <button className="fetchgame_btn" onClick={() => handleFilterAdventure()}>Adventure</button>
@@ -111,6 +117,7 @@ function FetchGames(prop) {
                         <button className="fetchgame_btn" onClick={() => handleRemoveFilter()}>Remove filter</button>
                     </div>
                 </div>
+
                 <div className="fetchgames_cardcontainer">
                     {filteredGames.map(item => {
                         const { name, id } = item;

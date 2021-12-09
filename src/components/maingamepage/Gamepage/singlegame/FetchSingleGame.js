@@ -77,6 +77,7 @@ function FetchSingleGame() {
             </div>
             <div className="singlegame_sumdetailscontainer">
                 <div className="singlegame_summarycontainer">
+                    <h3 className="singlegame_gameheading">Summary</h3>
                     <p>{game.summary}</p>
                 </div>
                 <div className="singlegame_gamedetails">
