@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
 import ImageSlider from './imgslider/ImageSlider';
 import SingleGameBtn from '../../button/SingleGameBtn';
+import loadingscreen from '../../../../assets/loadingscreen.gif'
 
 
 
@@ -57,7 +58,9 @@ function FetchSingleGame() {
     )
 
     if (loading) {
-        return <div>Loading....</div>
+        return <div className="fetchgame_loadingscreen">
+            <img src={loadingscreen} className="fetchgame_loadingimg" />
+        </div>
     }
 
     if (error) {
@@ -73,6 +76,7 @@ function FetchSingleGame() {
             <div className="singlegame_btncontainer">
                 <div className="singlegame_background">
                     <SingleGameBtn singlegameBtn={game.name} />
+                    <p className="singlegame_instock">In stock</p>
                 </div>
             </div>
             <div className="singlegame_sumdetailscontainer">
@@ -83,24 +87,26 @@ function FetchSingleGame() {
                 <div className="singlegame_gamedetails">
                     <h3 className="singlegame_gameheading">Game details</h3>
                     {game.genres.map(item => {
-                        return <p>Genre: {item.name}</p>
+                        return <p className="singlegame_details">Genre: {item.name}</p>
                     })}
-                    <p>Platform: {game.platforms[0].abbreviation}</p>
-                    <p>Release date: {game.release_dates[0].human}</p>
+                    <p className="singlegame_details">Platform: {game.platforms[0].abbreviation}</p>
+                    <p className="singlegame_details">Release date: {game.release_dates[0].human}</p>
+                    <div>
+                        <p className="singlegame_details">Rating: {Math.floor(game.rating)}</p>
+                    </div>
                 </div>
             </div>
             <div className="singlegame_ratingcontainer">
-                <div className="singlegame_ratings">
-                    <h2 className="singelgame_heading2">Rating</h2>
-                    <p className="singlegame_ratingnumber">{Math.floor(game.rating)}</p>
+                <div className="singlegame_videocontainer">
+                    <iframe
+                        width="400"
+                        height="280"
+                        className="singelgame_video"
+                        src={`https://www.youtube.com/embed/${youtubeid}`}
+                        title={game.name}
+                    />
                 </div>
             </div>
-            <iframe
-                width="400"
-                height="280"
-                src={`https://www.youtube.com/embed/${youtubeid}`}
-                title={game.name}
-            />
         </>
     );
 }

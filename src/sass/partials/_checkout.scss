@@ -1,6 +1,21 @@
+.checkout_heading {
+    text-align: center;
+    text-transform: uppercase;
+    color: $neutralcolor;
+    padding: 60px 0 0 0;
+}
+
+.checkout_ordereditems {
+    text-align: center;
+    color: $neutralcolor;
+    font-size: $paginator;
+}
+
 .checkout_containerform {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    height: 150px;
 }
 
 .checkout_formfirstname {
@@ -10,16 +25,19 @@
 .checkout_containeremail {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    height: 150px;
 }
 
 .checkout_containeradress {
     display: flex;
     justify-content: center;
+    height: 150px;
 }
 
 .checkout_firstname {
     width: 350px;
-    margin: 10px 0 30px 0;
+    margin: 10px 0 0 0;
     padding: 8px 0 8px 0;
     border-radius: 5px;
     transition: 0.3s ease-in;
@@ -29,25 +47,207 @@
             inset 3px 3px 5px rgba(204, 0, 204, 0.5);
 }
 
+.checkout_heading2 {
+    text-align: center;
+    color: $neutralcolor;
+    margin: 30px 0 30px 0;
+}
+
 .checkout_email {
     @extend .checkout_firstname;
-    width: 700px;
-    margin: 10px 0 30px 20px;
+    width: 730px;
+    margin: 10px 0 0 20px;
 }
 
 .checkout_adress {
     @extend .checkout_firstname;
-    width: 240px;
-    margin: 10px 50px 30px 0;
+    width: 265px;
+    margin: 10px 50px 0 0;
 }
 
 .checkout_pobox {
     @extend .checkout_firstname;
-    width: 200px;
-    margin: 10px 0 30px 40px;
+    width: 130px;
+    margin: 10px 0 0 50px;
 }
 
 .checkout_place {
     @extend .checkout_firstname;
-    width: 200px;
+    width: 220px;
+}
+
+.checkout_creditcardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 130px;
+}
+
+.checkout_btncontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+}
+
+.btn-primary {
+    background-color: $btn-color !important;
+    color: black !important;
+    border: none !important;
+    font-size: $font-size !important;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    box-shadow: 4px 2px 3px $logocolor;
+    margin: 0 0 30px 0;
+}
+
+.errormsg {
+    color: $logocolor;
+    text-align: center;
+}
+
+.loginform_label {
+    margin: 30px 0 0 0;
+    color: $neutralcolor;
+    font-size: $paginator;
+}
+
+.checkout_cardnr {
+    @extend .checkout_firstname;
+}
+
+.checkout_yearmonth {
+    @extend .checkout_firstname;
+    width: 120px;
+    margin: 10px 0 0 10px;
+}
+
+.checkout_cvc {
+    @extend .checkout_firstname;
+    width: 120px;
+    margin: 10px 0 0 10px;
+}
+
+.modal-content {
+    background-color: rgb(46, 37, 70) !important;
+}
+
+.modal-title {
+    font-family: $pixelFont;
+    color: $neutralcolor;
+    text-transform: uppercase;
+}
+
+.modal-header {
+    border-bottom: 2px solid $logocolor !important;
+}
+
+.btn-close {
+    color: $logocolor !important;
+    background-image: none !important;
+    cursor: default !important;
+}
+
+.modal-body {
+    color: $neutralcolor;
+    font-family: $pixelFont;
+}
+
+.modal-footer {
+    border-top: 2px solid $logocolor !important;
+}
+
+.btn-secondary {
+    background-color: $btn-color !important;
+    color: black !important;
+    font-family: $pixelFont;
+    font-size: $font-size !important;
+    box-shadow: 4px 2px 3px $logocolor;
+}
+
+@media screen and (max-width: 1024px) {
+    .checkout_formfirstname {
+        margin: 0 10px 0 0;
+    }
+
+    .checkout_email {
+        width: 700px;
+        margin: 10px 0 0 0;
+    }
+
+    .checkout_adress {
+        width: 265px;
+        margin: 10px 20px 0 0;
+    }
+
+    .checkout_pobox {
+        width: 130px;
+        margin: 10px 0 0 20px;
+    }
+
+    .checkout_cardnr {
+        margin: 0 20px 0 0;
+    }
+
+    .checkout_yearmonth {
+        margin: 0 20px 0 0;
+    }
+
+    .checkout_cvc {
+        margin: 0 20px 0 0;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .loginform_labelemail {
+        display: none;
+    }
+
+    .loginform_label {
+        display: none;
+    }
+
+    .checkout_email {
+        margin: 10px 0 0 0;
+        width: 350px;
+    }
+
+    .checkout_containeremail {
+        height: 90px;
+    }
+
+    .checkout_formfirstname {
+        margin: 0 0 0 0;
+    }
+
+    .checkout_containerform {
+        height: 120px;
+    }
+
+    .checkout_adress {
+        width: 130px;
+        margin: 0 0 0 10px;
+    }
+
+    .checkout_place {
+        width: 110px;
+        margin: 0 0 0 10px;
+    }
+
+    .checkout_pobox {
+        width: 80px;
+        margin: 0 10px 0 10px;
+    }
+
+    .checkout_containeradress {
+        display: flex;
+        justify-content: center;
+        height: 80px;
+    }
+
+    .checkout_cardnr {
+        margin: 0 0 0 0;
+        width: 350px;
+    }
 }

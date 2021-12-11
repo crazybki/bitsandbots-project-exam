@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 
 
-function FetchGames(prop) {
+function FetchGames() {
 
     const [apiData, setApiData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -96,8 +96,10 @@ function FetchGames(prop) {
                 <h1
                 >Bits and Bots</h1>
                 <div>
-                    <Link to="/addtocart">
-                        <p>Cart items</p>
+                    <Link className="fetchgames_anchor" to="/addtocart">
+                        <div className="fetchgame_linkcontainer">
+                            <p className="fetchgame_cartlink">Your cart items</p>
+                        </div>
                     </Link>
                 </div>
                 <div className="fetchgame_flexcontbtn">

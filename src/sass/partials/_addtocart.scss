@@ -10,29 +10,119 @@
     grid-template-columns: 1fr 165px 3fr 1fr 1fr; 
     grid-template-rows: 1fr; 
     gap: 0px 26px;
-  }
-  
-  .addtocart_image { 
-    grid-area: 1 / 3 / 2 / 3; 
-    margin: 20px 0 20px 0;
-    }
+    margin: 10px 0 20px 0;
+}
 
   
-  .addtocart_name { 
+.addtocart_image { 
+    grid-area: 1 / 3 / 2 / 3; 
+    margin: 20px 0 20px 0;
+}
+
+
+.addtocart_btns {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 60px 0;
+}
+
+.addtocart_continuebtn {
+    margin: 20px 40px 0 0;
+    background-color: $btn-color;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    box-shadow: 4px 2px 3px $logocolor,
+}
+
+.addtocart_keepshopping {
+    margin: 20px 20px 0 0;
+    background-color: $btn-color;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 4px 2px 3px $logocolor,
+}
+
+  
+.addtocart_name { 
     grid-area: 1 / 2 / 2 / 5;
     text-align: center;
     margin: 50px 0 0 0;
     color: $neutralcolor;
     text-transform: uppercase;
-
-    }
+    place-self: center;
+    font-size: $paginator;
+}
   
-  .addtocart_btn { 
+.addtocart_btn { 
     grid-area: 1 / 4 / 1 / 5; 
     margin: 20px 0 20px 0;
     width: 40px;
     height: 40px;
+    place-self: center;
+    background-color: $logocolor;
+    border: none;
+    font-weight: 600;
+    font-size: $paginator;
+    border-radius: 3px;
+}
+
+.addtocart_overline {
+    grid-area: 1 / 2 / 3 / 5;
+    background-color: rgb(24, 19, 37);
+    border-radius: 5px;
+}
+
+/********TABLET VIEW*********/
+
+@media screen and (max-width: 1024px) {
+    .addtocart_image { 
+        grid-area: 1 / 2 / 2 / 3; 
+        margin: 20px 0 20px 20px;
     }
 
+    .addtocart_name { 
+        margin: 0 0 0 30px;
+        font-size: $font-size;
+        width: 250px;
+    }
+
+    .addtocart_overline {
+        grid-area: 1 / 2 / 3 / 5;
+        background-color: rgb(24, 19, 37);
+    }
+    
+}
+
+/********TABLET VIEW*********/
 
 
+
+/********MOBILE VIEW*********/
+@media screen and (max-width: 640px) {
+      
+.addtocart_name { 
+    grid-area: 1 / 2 / 2 / 5;
+    text-transform: uppercase;
+    place-self: center;
+    margin: 160px 0 0 0;
+    }
+
+    .addtocart_overline {
+     height: 280px;
+    }
+
+    .addtocart_btn { 
+        place-self: start end;
+        margin: 10px 10px 0 0;
+    }
+
+    .addtocart_image { 
+        grid-area: 1 / 1 / 2 / 4; 
+        place-self: start end;
+        margin: 25px 25px 0 0;
+    }
+}
+
+/********MOBILE VIEW*********/

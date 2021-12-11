@@ -1,26 +1,28 @@
 .imgcontainer {
-    width: 50%;
+    width: 70%;
     height: auto;
     margin: 0 auto !important;
 }
 
 .singlegame_ratings {
-    display: inline-block;
+    margin: 20px 85px 0 0;
     color: chartreuse;
-    padding: 15px;
     background-color: blueviolet;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
 }
 
 .singlegame_ratingcontainer {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     margin: 35px;
 }
 
 .singlegame_btncontainer {
     display: flex;
     justify-content: end;
-    margin: 30px;
+    margin: 50px 110px 30px 0;
 }
 
 .singlegame_heading1 {
@@ -42,11 +44,23 @@
 
 .singlegame_background {
     background-color: blueviolet;
-    padding: 20px;
+    padding: 15px 100px;
+    border-radius: 5px;
+}
+
+.singlegame_instock {
+    font-size: $mediumfont;
+    margin: 20px 0 0 0;
+    text-align: center;
+    color: chartreuse;
 }
 
 .singlegame_btn {
-    background-color: chartreuse;
+    background-color: $btn-color;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 5px;
+    box-shadow: 4px 2px 3px $logocolor,
 }
 
 .carousel-item {
@@ -59,13 +73,14 @@
     font-size: $paginator;
     padding: 20px;
     border-radius: 5px;
-    width: 900px;
+    width: 700px;
     margin: 0 0 0 110px;
 }
 
 .singlegame_sumdetailscontainer {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .singlegame_gameheading {
@@ -75,12 +90,84 @@
 
 .singlegame_gamedetails {
     background-color:blueviolet;
-    margin: 0 110px 0 0;
+    margin: 0 105px 0 0;
     font-size: $paginator;
-    padding: 10px 20px;
+    padding: 20px 40px;
     border-radius: 5px;
-    width: 400px;
-    height: 250px;
     color: chartreuse;
+    height: 400px;
 }
 
+.singlegame_videocontainer {
+    margin: 0 0 0 70px;
+}
+
+@media screen and (max-width: 1024px) {
+    .imgcontainer {
+        width: 100%;
+        height: auto;
+        margin: 0 auto !important;
+    }
+
+    .singlegame_gamedetails {
+        order:-1;
+        width: 700px;
+        margin: 0 0 40px 40px;
+    }
+
+    .singlegame_summarycontainer {
+        margin: 0 0 0 35px;
+    }
+
+    .singlegame_ratings {
+        order: -1;
+    }
+
+    .singlegame_details {
+        font-size: $mediumfont;
+    }
+
+    .singlegame_ratingcontainer {
+        justify-content: center;
+    }
+
+    .singlegame_videocontainer {
+        margin: 0 0 0 0;
+    }
+
+    .singlegame_btncontainer {
+        font-size: $mediumfont;
+        justify-content: center;
+        margin: 50px 0 80px 0;
+    }
+
+    .singlegame_background {
+        background-color: blueviolet;
+        padding: 15px 50px;
+        border-radius: 5px;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+
+    .singlegame_gamedetails {
+        order:-1;
+        width: 350px;
+        margin: 0 0 40px 15px;
+    }
+
+    .singlegame_summarycontainer {
+        margin: 0 0 0 12px;
+        width: 350px;
+        font-size: $font-size;
+    }
+
+    .singelgame_video {
+        width: 330px;
+    }
+
+    .singlegame_details {
+        font-size: $paginator;
+    }
+}
