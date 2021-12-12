@@ -58,7 +58,7 @@ function LoginForm() {
                     </div>
                     <div>
                         <label className="loginform_label">Password:</label>
-                        <input {...register('password')} placeholder="Password" className="loginform_password" />
+                        <input {...register('password')} placeholder="Password" type="password" className="loginform_password" />
                         {errors.password && <p className="errormsg">{errors.password.message}</p>}
                     </div>
                     <div className="loginform_btncontainer">
