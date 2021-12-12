@@ -7,6 +7,7 @@ import SingleGame from './singlegame/SingleGame.js';
 import ReactPaginate from 'react-paginate';
 import BuyNowBtn from '../button/BuyNowBtn.js';
 import { Link } from "react-router-dom";
+import Footer from '../../navigation/Footer.js';
 
 
 
@@ -20,13 +21,20 @@ function FetchGames() {
     //Filter useState
     const [filteredGames, setfilteredGames] = useState([])
 
+    //Filters on genres
+
+    let rpg = apiData.filter(e => e.genres[0].name === "Adventure")
+    let shooter = apiData.filter(e => e.genres[0].name === "Shooter")
+    let pointAndClick = apiData.filter(e => e.genres[0].name === "Role-playing (RPG)")
+
+
 
     useEffect(function () {
         async function getGames() {
 
             try {
                 const res = await axios.post('https://fast-escarpment-36214.herokuapp.com/https://api.igdb.com/v4/games',
-                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where videos != null; where release_dates.platform = (48,49,6);  limit 120;',
+                    'fields name, genres.*, artworks.*, cover.*, rating, screenshots.*, videos.*; where cover != null; where name = *"Human"*; where videos != null; where release_dates.platform = (48,49); limit 95;',
                     {
                         headers: {
                             'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
@@ -50,6 +58,7 @@ function FetchGames() {
         getGames()
     }, [])
 
+    console.log(apiData)
 
 
     if (loading) {
@@ -62,27 +71,17 @@ function FetchGames() {
         return <div>Error: An error occured</div>
     }
 
-    //Filters on genres
 
-    let adventure = apiData.filter(e => e.genres[0].name === "Adventure")
-    let shooter = apiData.filter(e => e.genres[0].name === "Shooter")
-    let simulator = apiData.filter(e => e.genres[0].name === "Simulator")
-    let racing = apiData.filter(e => e.genres[0].name === "Racing")
-
-    function handleFilterAdventure() {
-        setfilteredGames(adventure)
+    function handleFilterRpg() {
+        setfilteredGames(rpg)
     }
 
     function handleFilterShooter() {
         setfilteredGames(shooter)
     }
 
-    function handleFilterSimulator() {
-        setfilteredGames(simulator)
-    }
-
-    function handleFilterRacing() {
-        setfilteredGames(racing)
+    function handleFilterpointAndClick() {
+        setfilteredGames(pointAndClick)
     }
 
     function handleRemoveFilter() {
@@ -93,8 +92,6 @@ function FetchGames() {
     return (
         <>
             <div className="fetchgames_container">
-                <h1
-                >Bits and Bots</h1>
                 <div>
                     <Link className="fetchgames_anchor" to="/addtocart">
                         <div className="fetchgame_linkcontainer">
@@ -102,18 +99,16 @@ function FetchGames() {
                         </div>
                     </Link>
                 </div>
+                <h1 className="fetchgames_heading1">Bits and Bots</h1>
                 <div className="fetchgame_flexcontbtn">
                     <div className="fetchgame_btndiv">
-                        <button className="fetchgame_btn" onClick={() => handleFilterAdventure()}>Adventure</button>
+                        <button className="fetchgame_btn" onClick={() => handleFilterRpg()}>RPG</button>
                     </div>
                     <div className="fetchgame_btndiv">
                         <button className="fetchgame_btn" onClick={() => handleFilterShooter()}>Shooter</button>
                     </div>
                     <div className="fetchgame_btndiv">
-                        <button className="fetchgame_btn" onClick={() => handleFilterSimulator()}>Simulator</button>
-                    </div>
-                    <div className="fetchgame_btndiv">
-                        <button className="fetchgame_btn" onClick={() => handleFilterRacing()}>Racing</button>
+                        <button className="fetchgame_btn" onClick={() => handleFilterpointAndClick()}>Point-and-Click</button>
                     </div>
                     <div className="fetchgame_btndiv">
                         <button className="fetchgame_btn" onClick={() => handleRemoveFilter()}>Remove filter</button>
@@ -139,6 +134,7 @@ function FetchGames() {
                     })}
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

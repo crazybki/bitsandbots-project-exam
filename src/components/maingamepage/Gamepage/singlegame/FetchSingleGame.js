@@ -43,7 +43,7 @@ function FetchSingleGame() {
                         });
 
                     setGame(response.data[0])
-                    console.log(game)
+
                 }
                 catch (error) {
                     setError(error.toString())
@@ -68,6 +68,7 @@ function FetchSingleGame() {
     }
     let youtubeid = game.videos[0].video_id
 
+    console.log(game)
 
     return (
         <>
@@ -75,7 +76,7 @@ function FetchSingleGame() {
             <h1 className="singlegame_heading1">{game.name}</h1>
             <div className="singlegame_btncontainer">
                 <div className="singlegame_background">
-                    <SingleGameBtn singlegameBtn={game.name} />
+                    <SingleGameBtn singlegameBtn={game} />
                     <p className="singlegame_instock">In stock</p>
                 </div>
             </div>
@@ -86,9 +87,8 @@ function FetchSingleGame() {
                 </div>
                 <div className="singlegame_gamedetails">
                     <h3 className="singlegame_gameheading">Game details</h3>
-                    {game.genres.map(item => {
-                        return <p className="singlegame_details">Genre: {item.name}</p>
-                    })}
+                    <p className="singlegame_details">Genre: {game.genres[0].name}</p>
+
                     <p className="singlegame_details">Platform: {game.platforms[0].abbreviation}</p>
                     <p className="singlegame_details">Release date: {game.release_dates[0].human}</p>
                     <div>

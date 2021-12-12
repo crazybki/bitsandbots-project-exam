@@ -5,7 +5,7 @@ function ImageSlider(props) {
     console.log(props)
     return (
         <>
-            <Carousel>
+            <Carousel fade>
                 {props.images.screenshots.map(imgtag => {
                     console.log(imgtag.id)
                     return <Carousel.Item>

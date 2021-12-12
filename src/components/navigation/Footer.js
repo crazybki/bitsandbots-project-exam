@@ -1,10 +1,15 @@
 import React from 'react'
 
+
 function Footer() {
     return (
-        <div>
-
-        </div>
+        <>
+            <footer>
+                <p>face book</p>
+                <p>face book</p>
+                <p>face book</p>
+            </footer>
+        </>
     )
 }
 

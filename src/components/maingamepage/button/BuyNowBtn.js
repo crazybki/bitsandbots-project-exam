@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
 function BuyNowBtn(props) {
@@ -32,9 +32,10 @@ function BuyNowBtn(props) {
 
 
     function handleRemoveGame(id) {
+        console.log(id)
         let localStored = JSON.parse(localStorage.getItem('game', id));
         localStorage.setItem("game", JSON.stringify(localStored.filter(item => {
-            console.log(item.id !== id)
+            return item.id !== id
         })));
         setBoughtGame(true);
     }
@@ -44,7 +45,7 @@ function BuyNowBtn(props) {
         <div>
             {boughtGame
                 ? <button className="buynow_btnbuy" onClick={() => handleBuybtn(props.gameImg.cover.id, props.gameImg.name, props.gameImg.cover.image_id, 9.99)}>Buy</button>
-                : <button className="buynow_btn" onClick={() => handleRemoveGame(props.gameImg.cover.name, props.gameImg.cover.id, props.gameImg.cover.image_id, 9.99)} > Bought</button>}
+                : <button className="buynow_btn" onClick={() => handleRemoveGame(props.gameImg.cover.id, props.gameImg.cover.name, props.gameImg.cover.image_id, 9.99)} > Bought</button>}
         </div >
 
     )

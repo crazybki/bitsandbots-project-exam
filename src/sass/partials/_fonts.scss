@@ -3,6 +3,10 @@
     src: url(../../fonts/pixelsfont/VT323-Regular.ttf);
 }
 
+body {
+    background-color: rgb(14, 11, 22) !important;
+}
+
 h1 {
     font-family: $pixelFont;
 }
@@ -28,6 +32,7 @@ h5 {
     background-color: rgb(14, 11, 22);
     box-sizing: border-box;
 }
+
 
 p {
     font-family: $pixelFont;

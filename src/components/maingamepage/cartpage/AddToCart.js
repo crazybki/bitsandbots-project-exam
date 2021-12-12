@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 function AddToCart() {
 
     const [retriveItems, setRetriveItems] = useState(JSON.parse(window.localStorage.getItem('game')));
+    const [item, setItem] = useState(0);
+
 
     function removeCartItem(id) {
         localStorage.setItem("game", JSON.stringify(retriveItems.filter(item => {
@@ -23,7 +25,7 @@ function AddToCart() {
             <div>
                 <div className="addtocart_btns">
                     <Link to="/checkoutpage">
-                        <button className="addtocart_continuebtn" disabled={retriveItems.length < 1}>Continue</button>
+                        <button className="addtocart_continuebtn" disabled={retriveItems?.length === 0}>Continue</button>
                     </Link>
                     <Link to="/games">
                         <button className="addtocart_keepshopping">Keep shopping</button>

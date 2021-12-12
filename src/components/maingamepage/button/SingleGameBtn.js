@@ -1,21 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function SingleGameBtn(props) {
-    console.log('singlegameBtn' + props)
 
-    function handleBuybtn(e) {
-        let selectedGame = e.target.value;
-        const orderedGames = JSON.parse(localStorage.getItem("games"));
-        if (orderedGames) localStorage.setItem("games", JSON.stringify([...orderedGames, selectedGame]));
-        else localStorage.setItem("games", JSON.stringify([selectedGame]));
+    const [boughtGame, setBoughtGame] = useState(true)
 
+    //  console.log(props.gameImg.cover.id)
+    function handleBuybtn(id, name, img, price) {
+        const orderedGames = JSON.parse(localStorage.getItem('game'));
+        let gameName = name;
+        let gameImg = img;
+        let gamePrice = price
+        let newGames = {
+            'id': id,
+            'name': gameName,
+            'image': gameImg,
+            'price': gamePrice
+        }
 
+        if (orderedGames) localStorage.setItem('game', JSON.stringify([...orderedGames, newGames]));
+        else localStorage.setItem('game', JSON.stringify([{
+            'id': id,
+            'name': gameName,
+            'image': gameImg,
+            'price': gamePrice
+        }]))
+        setBoughtGame(false);
+
+        console.log(price)
     }
+
+    function handleRemoveGame(id) {
+        let localStored = JSON.parse(localStorage.getItem('game', id));
+        localStorage.setItem("game", JSON.stringify(localStored.filter(item => {
+            return item.id !== id
+        })));
+        setBoughtGame(true);
+    }
+
 
     return (
         <div>
-            <button className="singlegame_btn" onClick={handleBuybtn} value={props.singlegameBtn}>Buy</button>
-        </div>
+            {boughtGame
+                ? <button className="buynow_btnbuy" onClick={() => handleBuybtn(props.singlegameBtn.cover.id, props.singlegameBtn.name, props.singlegameBtn.cover.image_id, 9.99)}>Buy</button>
+                : <button className="buynow_btn" onClick={() => handleRemoveGame(props.singlegameBtn.cover.id, props.singlegameBtn.cover.name, props.singlegameBtn.cover.image_id, 9.99)} > Bought</button>}
+        </div >
+
     )
 }
 
