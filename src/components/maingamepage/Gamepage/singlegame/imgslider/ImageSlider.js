@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 function ImageSlider(props) {
     console.log(props)
     return (
-        <>
+        <div className="imageslider_container">
             <Carousel interval={null}>
                 {props.images.screenshots.map(imgtag => {
                     console.log(imgtag.id)
@@ -16,7 +16,7 @@ function ImageSlider(props) {
                     </Carousel.Item>
                 })}
             </Carousel>
-        </>
+        </div>
     )
 }
 
