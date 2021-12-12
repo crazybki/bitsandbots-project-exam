@@ -59,7 +59,7 @@ function FetchSingleGame() {
 
     if (loading) {
         return <div className="fetchgame_loadingscreen">
-            <img src={loadingscreen} className="fetchgame_loadingimg" />
+            <img alt="loading screen for fetching single game" src={loadingscreen} className="fetchgame_loadingimg" />
         </div>
     }
 
@@ -74,12 +74,13 @@ function FetchSingleGame() {
         <>
             <ImageSlider images={game} />
             <h1 className="singlegame_heading1">{game.name}</h1>
+
             <div className="singlegame_btncontainer">
                 <div className="singlegame_background">
                     <SingleGameBtn singlegameBtn={game} />
-                    <p className="singlegame_instock">In stock</p>
                 </div>
             </div>
+
             <div className="singlegame_sumdetailscontainer">
                 <div className="singlegame_summarycontainer">
                     <h3 className="singlegame_gameheading">Summary</h3>
@@ -96,16 +97,18 @@ function FetchSingleGame() {
                     </div>
                 </div>
             </div>
+
             <div className="singlegame_ratingcontainer">
                 <div className="singlegame_videocontainer">
                     <iframe
-                        width="400"
-                        height="280"
+                        width="700"
+                        height="380"
                         className="singelgame_video"
                         src={`https://www.youtube.com/embed/${youtubeid}`}
                         title={game.name}
                     />
                 </div>
+                <p className="singlegame_emptycontainer"></p>
             </div>
         </>
     );

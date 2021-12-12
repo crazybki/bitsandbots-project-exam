@@ -16,6 +16,11 @@
 
 }
 
+.fetchgames_genreheading {
+    color:$neutralcolor;
+    font-size: $heading3;
+    text-align: center;
+}
 
 .fetchgames_anchor {
     margin: 0 60px 0 0;
@@ -97,16 +102,26 @@
 }
 
 .fetchgame_btndiv {
-    margin: 0 20px 0 20px;
+    margin: 0 30px 0 30px;
 }
 
 .fetchgame_btn {
     background-color: $btn-color;
     border: none;
-    padding: 10px;
+    padding: 10px 30px 10px 30px;
     border-radius: 5px;
     margin: 20px 0 0 0;
     box-shadow: 4px 2px 3px $logocolor,
+}
+
+.fetchgame_btnrpg {
+    @extend .fetchgame_btn;
+    padding: 10px 60px 10px 60px;
+}
+
+.fetchgame_btnshooter {
+    @extend .fetchgame_btn;
+    padding: 10px 50px 10px 50px;
 }
 
 .fetchgame_btn:hover {
@@ -159,6 +174,9 @@ a:-webkit-any-link{
 
 @media screen and (max-width: 1024px) {
 
+    .fetchgame_btndiv {
+        margin: 0 10px 0 10px;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -187,5 +205,33 @@ a:-webkit-any-link{
 
     .fetchgame_container {
         margin: 40px 20px 40px 20px;
+    }
+
+    .fetchgames_genreheading {
+        font-size: $font-size;
+        text-align: center;
+    }
+
+    .fetchgame_btn {
+        padding: 10px 30px 10px 30px;
+        margin: 20px 0 0 0;
+        box-shadow: 4px 2px 3px $logocolor,
+    }
+
+    .fetchgame_linkcontainer {
+        text-align: center;
+    }
+
+    .fetchgames_anchor {
+        margin: 0 0 0 0;
+    }
+
+    .fetchgames_anchor {
+        justify-content: center;
+    }
+
+    .fetchgame_cartlink {
+        margin: 20px 0 30px 0;
+        text-align: center;
     }
 }

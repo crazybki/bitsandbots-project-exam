@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function AddToCart() {
 
     const [retriveItems, setRetriveItems] = useState(JSON.parse(window.localStorage.getItem('game')));
-    const [item, setItem] = useState(0);
+
 
 
     function removeCartItem(id) {

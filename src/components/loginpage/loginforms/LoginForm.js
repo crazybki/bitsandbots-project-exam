@@ -55,7 +55,7 @@ function LoginForm() {
                         {errors.password && <p className="errormsg">{errors.password.message}</p>}
                     </div>
                     <div className="loginform_btncontainer">
-                        <button type="submit" className="loginform_btn">Register</button>
+                        <button type="submit" className="loginform_btn">Login</button>
                     </div>
                 </Form>
             </Container>

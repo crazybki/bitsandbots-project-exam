@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { TOKEN, CLIENT_ID } from '../../consts/ApiInfo.js';
 import loadingscreen from "../../../assets/loadingscreen.gif"
 import SingleGame from './singlegame/SingleGame.js';
-import ReactPaginate from 'react-paginate';
 import BuyNowBtn from '../button/BuyNowBtn.js';
 import { Link } from "react-router-dom";
 import Footer from '../../navigation/Footer.js';
@@ -63,7 +62,7 @@ function FetchGames() {
 
     if (loading) {
         return <div className="fetchgame_loadingscreen">
-            <img src={loadingscreen} className="fetchgame_loadingimg" />
+            <img alt="loading screen for gamespage" src={loadingscreen} className="fetchgame_loadingimg" />
         </div>
     }
 
@@ -92,6 +91,7 @@ function FetchGames() {
     return (
         <>
             <div className="fetchgames_container">
+                <h1 className="fetchgames_heading1">Bits and Bots</h1>
                 <div>
                     <Link className="fetchgames_anchor" to="/addtocart">
                         <div className="fetchgame_linkcontainer">
@@ -99,16 +99,16 @@ function FetchGames() {
                         </div>
                     </Link>
                 </div>
-                <h1 className="fetchgames_heading1">Bits and Bots</h1>
+                <p className="fetchgames_genreheading">Looking for a special genre?</p>
                 <div className="fetchgame_flexcontbtn">
                     <div className="fetchgame_btndiv">
-                        <button className="fetchgame_btn" onClick={() => handleFilterRpg()}>RPG</button>
+                        <button className="fetchgame_btn" onClick={() => handleFilterRpg()}>Adventure</button>
                     </div>
                     <div className="fetchgame_btndiv">
-                        <button className="fetchgame_btn" onClick={() => handleFilterShooter()}>Shooter</button>
+                        <button className="fetchgame_btnshooter" onClick={() => handleFilterShooter()}>Shooter</button>
                     </div>
                     <div className="fetchgame_btndiv">
-                        <button className="fetchgame_btn" onClick={() => handleFilterpointAndClick()}>Point-and-Click</button>
+                        <button className="fetchgame_btnrpg" onClick={() => handleFilterpointAndClick()}>RPG</button>
                     </div>
                     <div className="fetchgame_btndiv">
                         <button className="fetchgame_btn" onClick={() => handleRemoveFilter()}>Remove filter</button>
@@ -120,7 +120,7 @@ function FetchGames() {
                         const { name, id } = item;
                         return <div key={item.id}>
                             <div className="fetchgame_container">
-                                <img className="games_cardimg" variant="top" src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`} alt="Cover of `${games.name}`" />
+                                <img className="games_cardimg" variant="top" src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`} alt="Cover of the different games on frontpage" />
                                 <div className="fetchgames_titlecontainer">
                                     <h2 className="games_title">{item.name}</h2>
                                 </div>

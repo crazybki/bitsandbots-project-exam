@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from 'react-router';
 import Form from 'react-bootstrap/Form'
-import loadingscreen from '../../../assets/loadingscreen.gif'
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button'
@@ -20,8 +19,8 @@ function CheckoutPage(props) {
     let history = useHistory();
 
     const schema = yup.object().shape({
-        firstName: yup.string().required('Please enter your name').min(3, 'Please enter your first name'),
-        lastName: yup.string().required('Please enter your last name').min(3, 'Please enter your last name'),
+        firstName: yup.string().required('Enter your name').min(3, 'Please enter your first name'),
+        lastName: yup.string().required('Enter your last name').min(3, 'Please enter your last name'),
         adress: yup.string().required('Please enter your adress').min(5, 'Please enter a valid adress'),
         email: yup.string().required('Email is required').email('Email is invalid'),
         postboxNumber: yup.number('Missing P.O BOX number').typeError('Missing P.O BOX number'),
@@ -68,11 +67,11 @@ function CheckoutPage(props) {
                         <div className="checkout_formfirstname">
                             <label className="loginform_label">FirstName:</label>
                             <input {...register('firstName')} placeholder="firstName" className="checkout_firstname" />
-                            <div>
+                            <div className="loginform_firstnamecont">
                                 {errors.firstName && <span className="errormsg">{errors.firstName.message}</span>}
                             </div>
                         </div>
-                        <div>
+                        <div className="checkout_formlastname">
                             <label className="loginform_label">LastName:</label>
                             <input {...register('lastName')} placeholder="lastName" className="checkout_firstname" />
                             <div>
@@ -84,7 +83,7 @@ function CheckoutPage(props) {
                         <div>
                             <label className="loginform_label">Email:</label>
                             <input {...register('email')} placeholder="Email" className="checkout_email" />
-                            {errors.email && <span className="errormsg">{errors.email.message}</span>}
+                            {errors.email && <span className="errormsgemail">{errors.email.message}</span>}
                         </div>
                     </div>
                     <div className="checkout_containeradress">
@@ -111,15 +110,15 @@ function CheckoutPage(props) {
                         <h2 className="checkout_heading2">Credit card details</h2>
                         <div className="checkout_creditcardcontainer">
                             <div>
-                                <input {...register('creditnr')} type="tel" maxlength="19" placeholder="Card Number" className="checkout_cardnr" />
+                                <input {...register('creditnr')} type="tel" maxLength="19" placeholder="Card Number" className="checkout_cardnr" />
                                 {errors.creditnr && <p className="errormsg">{errors.creditnr.message}</p>}
                             </div>
                             <div>
-                                <input {...register('yearMonth')} type="tel" maxlength="5" placeholder="MM / YY" className="checkout_yearmonth" />
+                                <input {...register('yearMonth')} type="tel" maxLength="5" placeholder="MM / YY" className="checkout_yearmonth" />
                                 {errors.yearMonth && <p className="errormsg">{errors.yearMonth.message}</p>}
                             </div>
                             <div>
-                                <input {...register('cvc')} type="tel" maxlength="4" placeholder="CVC" className="checkout_cvc" />
+                                <input {...register('cvc')} type="tel" maxLength="4" placeholder="CVC" className="checkout_cvc" />
                                 {errors.cvc && <p className="errormsg">{errors.cvc.message}</p>}
                             </div>
                         </div>

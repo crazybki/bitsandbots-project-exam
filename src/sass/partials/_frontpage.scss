@@ -82,6 +82,7 @@
     margin: 150px;
 }
 
+
 .nav-tabs {
     border-bottom: 0!important;
 }
@@ -92,9 +93,7 @@
     margin: 0 0 0 120px;
 }
 
-.nav-item {
-    color: yellow !important;
-}
+
 /***BOOTSTRAP RESETS - Frontpage - tabs*****/
 
 .loginform__container {
@@ -118,12 +117,13 @@
 /***BOOTSTRAP RESETS*****/
 
 .navigation_logo {
-    width: 250px;
+    width: 200px;
 }
 
 .navigation_cartcontainer {
     display: flex;
     justify-content:space-between;
+    padding: 15px;
 }
 
 .navigation_cart{
@@ -173,6 +173,16 @@
 
 //**Tablet****//
 
+@media screen and (max-width: 1024px) {
+    
+    .frontpage_containercenter {
+        margin: 220px 30px 30px 30px;
+    }
+
+    .nav {
+        margin: 0 0 0 110px;
+    }
+}
 
 
 @media screen and (max-width: 640px) {
@@ -181,11 +191,11 @@
     }
 
     .frontpage_containercenter {
-        margin: 80px 30px 30px 30px;
+        margin: 180px 30px 30px 30px;
     }
 
     .nav {
-        margin: 0 0 0 60px;
+        margin: 0 0 0 40px;
     }
 
     .navigation_logo {
@@ -193,4 +203,13 @@
         height: 40px;
         margin: 0 0 0 10px;
     }
+
+    .fontpage_tabs {
+        width: 70%;
+    }
+
+    ul {
+        padding-inline-start: 0;
+    }
+
 }

@@ -20,11 +20,11 @@ function App() {
         <Navigation />
 
         <div className="app_container">
-          <Switch>
-            <Route exact path="/">
-              <FrontPage />
-            </Route>
-            <div className="app_container_background">
+          <div className="app_container_background">
+            <Switch>
+              <Route exact path="/">
+                <FrontPage />
+              </Route>
               <Route path="/games">
                 <Games />
               </Route>
@@ -37,8 +37,8 @@ function App() {
               <Route path="/checkoutpage">
                 <CheckoutPage />
               </Route>
-            </div>
-          </Switch>
+            </Switch>
+          </div>
         </div>
       </Router>
     </div>

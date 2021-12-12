@@ -8,11 +8,11 @@ function ImageSlider(props) {
             <Carousel interval={null}>
                 {props.images.screenshots.map(imgtag => {
                     console.log(imgtag.id)
-                    return <Carousel.Item>
-                        <div className="imgcontainer">
-                            <img key={imgtag.id} alt={`the game ${imgtag.name}`} src={`https://images.igdb.com/igdb/image/upload/t_screenshot_big/${imgtag.image_id}.jpg`}
-                            />
-                        </div>
+                    return <Carousel.Item key={imgtag.id}>
+                        <img alt="screenshots from the game" src={`https://images.igdb.com/igdb/image/upload/t_screenshot_big/${imgtag.image_id}.jpg`}
+                            className="d-block mx-auto imgcontainer"
+                        />
+
                     </Carousel.Item>
                 })}
             </Carousel>
