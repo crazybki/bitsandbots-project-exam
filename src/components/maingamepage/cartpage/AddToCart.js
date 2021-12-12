@@ -40,8 +40,9 @@ function AddToCart() {
                             <button className="addtocart_btn" onClick={() => removeCartItem(item.id)}>X</button>
                         </div>
                     </div>
-                }) : <p>No items in cart</p>}
+                }) : <p className="addtocart_message">No items in cart</p>}
             </div>
+            <div className="addtocart_footercontainer"></div>
         </>
     )
 }

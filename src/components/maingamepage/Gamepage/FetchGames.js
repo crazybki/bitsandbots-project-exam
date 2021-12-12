@@ -1,13 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { TOKEN, CLIENT_ID } from '../../consts/ApiInfo.js';
 import loadingscreen from "../../../assets/loadingscreen.gif"
 import SingleGame from './singlegame/SingleGame.js';
 import BuyNowBtn from '../button/BuyNowBtn.js';
 import { Link } from "react-router-dom";
-import Footer from '../../navigation/Footer.js';
-
 
 
 function FetchGames() {
@@ -134,7 +131,6 @@ function FetchGames() {
                     })}
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

@@ -7,7 +7,7 @@ import Games from './components/maingamepage/Games';
 import FetchSingleGame from './components/maingamepage/Gamepage/singlegame/FetchSingleGame';
 import AddToCart from './components/maingamepage/cartpage/AddToCart';
 import CheckoutPage from './components/maingamepage/checkout/CheckoutPage';
-
+import Footer from './components/navigation/Footer';
 
 
 
@@ -40,6 +40,7 @@ function App() {
             </Switch>
           </div>
         </div>
+        <Footer />
       </Router>
     </div>
   );

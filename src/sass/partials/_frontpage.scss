@@ -1,3 +1,4 @@
+
 .frontpage_videobackground {
     position: fixed;
     right: 0;
@@ -5,6 +6,10 @@
     min-width: 100%;
     min-height: 100%;
     z-index: -999;
+}
+
+.test {
+    background-color: transparent !important;
 }
 
 .frontpage_tabcontainer {
@@ -18,7 +23,10 @@
 
 .nav-item {
     background-color: $background !important; 
+    border-radius: 5px;
 }
+
+
 
 .loginform_email {
     width: 100%;
@@ -100,10 +108,12 @@
     width: 70% !important;
 }
 
+.nav-link {
+    color: white !important;
+}
 
-
-.nav-link .active {
-    background-color: #1f0275;
+.nav-link.active {
+    background-color: #1f0275 !important;
 }
 
 

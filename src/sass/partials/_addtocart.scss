@@ -35,6 +35,19 @@
     box-shadow: 4px 2px 3px $logocolor,
 }
 
+.addtocart_message {
+    color: $neutralcolor;
+    font-size: $heading1;
+    text-align: center;
+}
+
+.addtocart_footercontainer {
+    min-height:100vh; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:space-between;
+}
+
 .addtocart_keepshopping {
     margin: 20px 20px 0 0;
     background-color: $btn-color;
@@ -122,6 +135,10 @@
         grid-area: 1 / 1 / 2 / 4; 
         place-self: start end;
         margin: 25px 25px 0 0;
+    }
+
+    .addtocart_message {
+        font-size: $heading3;
     }
 }
 

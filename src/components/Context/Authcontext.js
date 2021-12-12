@@ -1,10 +1,9 @@
-import React from "react";
-
+import React, { useState } from "react";
 
 const AuthContext = React.createContext([null, () => { }]);
 
 export const AuthProvider = (props) => {
-    const [auth, setAuth] = useLocalStorage('AuthKey', 'Password', null, null);
+    const [auth, setAuth] = useState(null);
     return <AuthContext.Provider value={[auth, setAuth]}>{props.children}</AuthContext.Provider>;
 };
 

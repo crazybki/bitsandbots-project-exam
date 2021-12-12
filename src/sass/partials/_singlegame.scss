@@ -150,20 +150,26 @@
 
 @media screen and (max-width: 640px) {
 
+    .singlegame_heading1 {
+        margin: 30px 0 0 0;
+        font-size: $heading3;
+        color: $neutralcolor;
+    }
+
     .singlegame_gamedetails {
         order:-1;
-        width: 350px;
-        margin: 0 0 40px 15px;
+        width: 320px;
+        margin: 0 0 40px 0;
     }
 
     .singlegame_summarycontainer {
-        margin: 0 0 0 12px;
-        width: 350px;
+        margin: 0 0 20px 0;
+        width: 320px;
         font-size: $font-size;
     }
 
     .singelgame_video {
-        width: 330px;
+        width: 300px;
     }
 
     .singlegame_details {
@@ -171,7 +177,11 @@
     }
 
     .imgcontainer {
-        width: 100%;
+        width: 80%;
         height: auto;
+    }
+
+    .singlegame_background {
+        margin: 0 0 0 0;
     }
 }

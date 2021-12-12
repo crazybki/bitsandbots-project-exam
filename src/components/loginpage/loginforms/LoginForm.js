@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Form from 'react-bootstrap/Form'
 import { useHistory } from 'react-router';
 import Container from 'react-bootstrap/Container'
+import AuthContext from '../../Context/Authcontext';
 
 
 const schema = yup.object().shape({
@@ -14,7 +15,10 @@ const schema = yup.object().shape({
 
 function LoginForm() {
 
+    const [auth, setAuth] = useContext(AuthContext);
+
     let history = useHistory();
+
 
     const {
         register,
@@ -30,6 +34,9 @@ function LoginForm() {
 
         let userEmailInput = data.email;
         let userPasswordInput = data.password;
+        setAuth(localStorage.getItem('Email'))
+
+        console.log(auth)
 
         if (email === userEmailInput && password === userPasswordInput) {
             history.push('/games')
