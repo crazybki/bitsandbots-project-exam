@@ -1,74 +1,73 @@
-
-
 .footer__imgcontainer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: #1f0275;
-    position: absolute;
-    margin: 40px 0 0 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    box-shadow: 0px -7px 20px -3px rgba(97, 82, 131, 0.5);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #1f0275;
+  position: absolute;
+  margin: 40px 0 0 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
 }
 
 .footer__facebook {
-    width: 4%;
-    margin: 10px 20px 0 20px;
+  width: 3%;
+  height: 60px;
+  margin: 10px 20px 0 20px;
 }
 
 .footer__instagram {
-    width: 4%;
-    margin: 10px 20px 0 20px;
+  width: 3%;
+  height: 60px;
+  margin: 10px 20px 0 20px;
 }
 
 .footer__twitter {
-    width: 4%;
-    margin: 10px 20px 0 20px;
+  width: 3%;
+  height: 60px;
+  margin: 10px 20px 0 20px;
 }
 
 @media screen and (max-width: 1024px) {
-    .footer__imgcontainer {
-        margin: 200px 0 0 0;
-    }
+  .footer__imgcontainer {
+    margin: 200px 0 0 0;
+  }
 
-    .footer__facebook {
-        width: 50px;
-        height: 50px;
-        margin: 20px 10px 0 10px;
-    }
-    
-    .footer__instagram {
-        width: 50px;
-        height: 50px;
-        margin: 20px 10px 0 10px;
-    }
-    
-    .footer__twitter {
-        width: 50px;
-        height: 50px;
-        margin: 20px 10px 0 10px;
-    }
+  .footer__facebook {
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px 0 10px;
+  }
+
+  .footer__instagram {
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px 0 10px;
+  }
+
+  .footer__twitter {
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px 0 10px;
+  }
 }
 
-@media screen and (max-width: 640px) { 
-    .footer__facebook {
-        width: 50px;
-        height: 50px;
-        margin: 20px 10px 0 10px;
-    }
-    
-    .footer__instagram {
-        width: 50px;
-        height: 50px;
-        margin: 20px 10px 0 10px;
-    }
-    
-    .footer__twitter {
-        width: 50px;
-        height: 50px;
-        margin: 20px 10px 0 10px;
-    }
+@media screen and (max-width: 640px) {
+  .footer__facebook {
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px 0 10px;
+  }
 
+  .footer__instagram {
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px 0 10px;
+  }
+
+  .footer__twitter {
+    width: 50px;
+    height: 50px;
+    margin: 20px 10px 0 10px;
+  }
 }

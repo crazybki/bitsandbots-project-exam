@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 function AddToCart() {
 
@@ -21,6 +22,10 @@ function AddToCart() {
 
     return (
         <>
+             <Breadcrumb>
+                 <Breadcrumb.Item href="games">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>Add to cart</Breadcrumb.Item>
+            </Breadcrumb>
             <h1 className="addtocart_heading">Your cart</h1>
             <div>
                 <div className="addtocart_btns">
