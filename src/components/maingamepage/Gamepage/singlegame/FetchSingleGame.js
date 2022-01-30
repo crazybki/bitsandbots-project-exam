@@ -5,6 +5,7 @@ import axios from 'axios';
 import ImageSlider from './imgslider/ImageSlider';
 import SingleGameBtn from '../../button/SingleGameBtn';
 import loadingscreen from '../../../../assets/loadingscreen.gif'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 
 
@@ -72,6 +73,9 @@ function FetchSingleGame() {
 
     return (
         <>
+            <Breadcrumb>
+                 <Breadcrumb.Item href="/games">Home</Breadcrumb.Item>
+            </Breadcrumb>
             <ImageSlider images={game} />
             <h1 className="singlegame_heading1">{game.name}</h1>
 

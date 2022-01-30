@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 
 function CheckoutPage(props) {
@@ -57,8 +58,12 @@ function CheckoutPage(props) {
 
     return (
         <div>
+            <Breadcrumb>
+                 <Breadcrumb.Item href="/games">Home</Breadcrumb.Item>
+                 <Breadcrumb.Item href="/addtocart">add to cart</Breadcrumb.Item>
+                <Breadcrumb.Item active>checkout</Breadcrumb.Item>
+            </Breadcrumb>
             <Container className="loginform__container">
-
                 <h1 className="checkout_heading">Check out</h1>
                 <p className="checkout_ordereditems">You have ordered {orderedItems.length} games from us</p>
 
