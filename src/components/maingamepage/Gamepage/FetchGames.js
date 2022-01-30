@@ -34,7 +34,7 @@ function FetchGames() {
                     {
                         headers: {
                             'Client-ID': '5m9j3jdb2746nrudsybqcc7yuxuan4',
-                            'Authorization': 'Bearer x52tpyte8uwg06pm8hibfn0l6u3jhy',
+                            'Authorization': 'Bearer z68t42ew7v2n6ejr7j4q4hjdsh9jjf',
                             'x-requested-with': 'testing'
                         },
                     });
